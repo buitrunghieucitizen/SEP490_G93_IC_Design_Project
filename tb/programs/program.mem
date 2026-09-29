@@ -1,0 +1,24 @@
+// Program 1: Basic Arithmetic
+// ADDI x1, x0, 10    → x1 = 10
+// ADDI x2, x0, 20    → x2 = 20
+// ADD  x3, x1, x2    → x3 = 30
+// SUB  x4, x2, x1    → x4 = 10
+// AND  x5, x1, x2    → x5 = 0
+// OR   x5, x1, x2    → x5 = 30
+//
+// Encoding (hex, little-endian word):
+// ADDI x1, x0, 10  → imm=10, rs1=x0, funct3=000, rd=x1, opcode=0010011
+//                  → 00A00093
+// ADDI x2, x0, 20  → 01400113
+// ADD  x3, x1, x2  → 002081B3  (funct7=0, rs2=x2, rs1=x1, funct3=000, rd=x3, op=0110011)
+// SUB  x4, x2, x1  → 40110233  (funct7=0100000)
+// NOP (ADDI x0,x0,0) → 00000013
+
+00A00093
+01400113
+002081B3
+40110233
+00000013
+00000013
+00000013
+00000013
