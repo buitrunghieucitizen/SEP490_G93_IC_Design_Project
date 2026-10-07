@@ -2,96 +2,55 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "🔨 Compile (Icarus Verilog)",
+      "label": "Prepare simulation output directory",
       "type": "shell",
-      "command": "E:\\down\\iverilog\\bin\\iverilog.exe",
-      "args": [
-        "-g2012",
-        "-Wall",
-        "-o",
-        "${workspaceFolder}/out/sim.vvp",
-        "${file}"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      },
-      "problemMatcher": {
-        "owner": "iverilog",
-        "fileLocation": ["relative", "${workspaceFolder}"],
-        "pattern": {
-          "regexp": "^(.*):(\\d+):\\s+(warning|error):\\s+(.*)$",
-          "file": 1,
-          "line": 2,
-          "severity": 3,
-          "message": 4
-        }
-      }
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-Command", "New-Item -ItemType Directory -Force -Path '${workspaceFolder}/out' | Out-Null"],
+      "problemMatcher": []
     },
     {
-      "label": "▶️ Run Simulation",
+      "label": "Compile ALU test (Verilog-2001)",
+      "type": "shell",
+      "command": "E:\\down\\iverilog\\bin\\iverilog.exe",
+      "args": ["-g2001", "-Wall", "-s", "tb_alu", "-o", "${workspaceFolder}/out/tb_alu.vvp", "${workspaceFolder}/src/alu.v", "${workspaceFolder}/tb/tb_alu.v"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "group": "build",
+      "dependsOn": "Prepare simulation output directory",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run ALU test",
       "type": "shell",
       "command": "E:\\down\\iverilog\\bin\\vvp.exe",
-      "args": ["${workspaceFolder}/out/sim.vvp"],
-      "dependsOn": "🔨 Compile (Icarus Verilog)",
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": true,
-        "panel": "shared"
-      },
+      "args": ["${workspaceFolder}/out/tb_alu.vvp"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "dependsOn": "Compile ALU test (Verilog-2001)",
       "problemMatcher": []
     },
     {
-      "label": "📊 Open GTKWave",
-      "type": "shell",
-      "command": "E:\\down\\iverilog\\bin\\gtkwave.exe",
-      "args": ["${workspaceFolder}/out/waveform.vcd"],
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "silent",
-        "focus": false,
-        "panel": "shared"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "🔨 Compile Testbench (Icarus)",
+      "label": "Compile CPU test (Verilog-2001)",
       "type": "shell",
       "command": "E:\\down\\iverilog\\bin\\iverilog.exe",
       "args": [
-        "-g2012",
-        "-Wall",
-        "-o",
-        "${workspaceFolder}/out/sim.vvp",
-        "${workspaceFolder}/src/*.sv",
-        "${workspaceFolder}/tb/*.sv"
+        "-g2001", "-Wall", "-s", "tb_cpu", "-o", "${workspaceFolder}/out/tb_cpu.vvp",
+        "${workspaceFolder}/src/alu.v", "${workspaceFolder}/src/register_file.v",
+        "${workspaceFolder}/src/pc.v", "${workspaceFolder}/src/instruction_memory.v",
+        "${workspaceFolder}/src/data_memory.v", "${workspaceFolder}/src/immediate_gen.v",
+        "${workspaceFolder}/src/control_unit.v", "${workspaceFolder}/src/datapath.v",
+        "${workspaceFolder}/src/cpu_top.v", "${workspaceFolder}/tb/tb_cpu.v"
       ],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      },
+      "options": {"cwd": "${workspaceFolder}"},
+      "group": {"kind": "build", "isDefault": true},
+      "dependsOn": "Prepare simulation output directory",
       "problemMatcher": []
     },
     {
-      "label": "🚀 Compile & Run (All-in-One)",
-      "dependsOn": ["🔨 Compile Testbench (Icarus)", "▶️ Run Simulation"],
-      "dependsOrder": "sequence",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
+      "label": "Run CPU test",
+      "type": "shell",
+      "command": "E:\\down\\iverilog\\bin\\vvp.exe",
+      "args": ["${workspaceFolder}/out/tb_cpu.vvp"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "dependsOn": "Compile CPU test (Verilog-2001)",
       "problemMatcher": []
     }
   ]
