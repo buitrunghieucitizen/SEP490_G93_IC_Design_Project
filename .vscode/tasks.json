@@ -1,0 +1,98 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🔨 Compile (Icarus Verilog)",
+      "type": "shell",
+      "command": "E:\\down\\iverilog\\bin\\iverilog.exe",
+      "args": [
+        "-g2012",
+        "-Wall",
+        "-o",
+        "${workspaceFolder}/out/sim.vvp",
+        "${file}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": {
+        "owner": "iverilog",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "severity": 3,
+          "message": 4
+        }
+      }
+    },
+    {
+      "label": "▶️ Run Simulation",
+      "type": "shell",
+      "command": "E:\\down\\iverilog\\bin\\vvp.exe",
+      "args": ["${workspaceFolder}/out/sim.vvp"],
+      "dependsOn": "🔨 Compile (Icarus Verilog)",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "📊 Open GTKWave",
+      "type": "shell",
+      "command": "E:\\down\\iverilog\\bin\\gtkwave.exe",
+      "args": ["${workspaceFolder}/out/waveform.vcd"],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🔨 Compile Testbench (Icarus)",
+      "type": "shell",
+      "command": "E:\\down\\iverilog\\bin\\iverilog.exe",
+      "args": [
+        "-g2012",
+        "-Wall",
+        "-o",
+        "${workspaceFolder}/out/sim.vvp",
+        "${workspaceFolder}/src/*.sv",
+        "${workspaceFolder}/tb/*.sv"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🚀 Compile & Run (All-in-One)",
+      "dependsOn": ["🔨 Compile Testbench (Icarus)", "▶️ Run Simulation"],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

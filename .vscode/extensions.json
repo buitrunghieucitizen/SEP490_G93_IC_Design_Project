@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "mshr-h.veriloghdl",
+    "eirikpre.systemverilog",
+    "teros-technology.teroshdl",
+    "wavetrace.wavetrace",
+    "zhwu95.riscv",
+    "eamodio.gitlens",
+    "usernamehw.errorlens",
+    "aaron-bond.better-comments",
+    "gruntfuggly.todo-tree",
+    "yzhang.markdown-all-in-one",
+    "hediet.vscode-drawio",
+    "oderwat.indent-rainbow"
+  ]
+}
