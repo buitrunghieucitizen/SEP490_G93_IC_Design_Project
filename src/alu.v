@@ -1,18 +1,5 @@
-// =============================================================================
-// Module  : alu
-// Project : RISC-V 32-bit Single-Cycle CPU
-// FPGA    : Synthesizable - Pure RTL, no IP cores, no libraries
-// Language: Verilog-2001
-//
-// Hardware duoc sinh ra (vi du voi Gowin GW1NR-9):
-//   ADD/SUB    -> 32-bit adder/subtractor  (~32 LUT4)
-//   AND/OR/XOR -> 32 bitwise gates         (~32 LUT4)
-//   SLL/SRL    -> Barrel shifter           (~160 LUT4)
-//   SRA        -> Arithmetic barrel shifter (~160 LUT4)
-//   SLT/SLTU   -> Comparator              (~32 LUT4)
-//   MUX        -> alu_ctrl decoder MUX    (~40 LUT4)
-//   TOTAL      ~ 500-600 LUT4
-// =============================================================================
+// Verilog-2001 ALU. The first eight operations are used by the CPU subset;
+// SLT/SLTU remain available as reusable ALU extensions but are not decoded.
 
 module alu (
     input  wire [31:0] a,          // Operand A (tu rs1)
@@ -63,8 +50,7 @@ module alu (
     assign sltu_result = (a < b)                  ? 32'd1 : 32'd0;   // Unsigned comparator
 
     // -------------------------------------------------------------------------
-    // Output MUX - chon ket qua theo alu_ctrl (4-bit -> 10-to-1 MUX)
-    // Tren FPGA: synthesize thanh cay LUT4
+    // Output mux selects the result associated with alu_ctrl.
     // -------------------------------------------------------------------------
     always @(*) begin
         case (alu_ctrl)

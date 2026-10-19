@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="rtl-01_LEVEL_1" name="01_LEVEL_1">
+    <mxGraphModel fold="1" pageWidth="1100" dx="1600" tooltips="1" guides="1" connect="1" grid="1" shadow="0" math="0" pageHeight="800" dy="900" gridSize="10" pageScale="1" page="1" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Hierarchy depth 1 — cpu_top children" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=18;fontColor=#000000;align=center;verticalAlign=middle;fontSize=18;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="0" vlsit_library_cell="2" vlsit_library_instance="title_l1">
+          <mxGeometry width="740" height="42" as="geometry" x="180" y="20" />
+        </mxCell>
+        <mxCell id="3" value="cpu_top&lt;br&gt;(cpu_top)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="parent_cpu_top">
+          <mxGeometry width="290" height="82" as="geometry" x="405" y="100" />
+        </mxCell>
+        <mxCell id="4" value="u_ctrl&lt;br&gt;(control_unit)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_ctrl">
+          <mxGeometry width="300" height="82" as="geometry" x="145" y="270" />
+        </mxCell>
+        <mxCell id="5" value="u_datapath&lt;br&gt;(datapath)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_datapath">
+          <mxGeometry width="300" height="82" as="geometry" x="655" y="270" />
+        </mxCell>
+        <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="4" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_cpu_ctrl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="5" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_cpu_datapath">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="5" target="4" value="opcode/funct3/funct7 → decode" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="func_instruction_fields">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="4" target="5" value="RegWrite, ALUSrc, MemRead/Write, Branch/Jump, ALUCtrl" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="func_controls">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="&lt;b&gt;Block Functions and Interfaces&lt;/b&gt;&lt;br&gt;&lt;br&gt;u_ctrl / control_unit (src/control_unit.v): exact opcode/funct decode; 20 supported instructions; invalid encodings assert illegal_instr with side-effect controls at zero.&lt;br&gt;&lt;br&gt;u_datapath / datapath (src/datapath.v): PC, decode fields, RF, ALU, memories, writeback and PC selection. Fault handling suppresses commit and holds PC; halted/fault flags clear on reset.&lt;br&gt;&lt;br&gt;Solid thin arrows = hierarchy. Dashed arrows = functional control/data flow." style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;align=left;verticalAlign=top;spacing=12;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="panel_l1">
+          <mxGeometry width="950" height="300" as="geometry" x="75" y="425" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="rtl-00_TOP" name="00_TOP">
+    <mxGraphModel fold="1" pageWidth="900" dx="1600" tooltips="1" guides="1" connect="1" grid="1" shadow="0" math="0" pageHeight="680" dy="900" gridSize="10" pageScale="1" page="1" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="RISC-V CPU RTL Hierarchy — Top" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=18;fontColor=#000000;align=center;verticalAlign=middle;fontSize=18;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="0" vlsit_library_cell="2" vlsit_library_instance="title_top">
+          <mxGeometry width="700" height="42" as="geometry" x="100" y="25" />
+        </mxCell>
+        <mxCell id="3" value="TOP&lt;br&gt;(cpu_top)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="TOP_cpu_top">
+          <mxGeometry width="280" height="82" as="geometry" x="310" y="105" />
+        </mxCell>
+        <mxCell id="4" value="External ports: clk, rst (synchronous active-high)" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=18;fontColor=#000000;align=center;verticalAlign=middle;fontSize=18;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="0" vlsit_library_cell="2" vlsit_library_instance="top_ports">
+          <mxGeometry width="540" height="45" as="geometry" x="180" y="205" />
+        </mxCell>
+        <mxCell id="5" value="&lt;b&gt;Block Functions &amp;amp; Interfaces&lt;/b&gt;&lt;br&gt;&lt;br&gt;cpu_top: core integration top (src/cpu_top.v).&lt;br&gt;Inputs: clk, rst. Outputs: debug data taps and sticky fault flags.&lt;br&gt;Clocked state updates on rising edge; PC and RF reset synchronously.&lt;br&gt;Board clock source, reset circuit, device/package, and pin mapping are not specified in RTL." style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;align=left;verticalAlign=top;spacing=12;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="panel_top">
+          <mxGeometry width="710" height="275" as="geometry" x="95" y="285" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="rtl-02_LEVEL_2" name="02_LEVEL_2">
+    <mxGraphModel fold="1" pageWidth="1850" dx="1600" tooltips="1" guides="1" connect="1" grid="1" shadow="0" math="0" pageHeight="1020" dy="900" gridSize="10" pageScale="1" page="1" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Hierarchy depth 2 — datapath children and key paths" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=18;fontColor=#000000;align=center;verticalAlign=middle;fontSize=18;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="0" vlsit_library_cell="2" vlsit_library_instance="title_l2">
+          <mxGeometry width="850" height="42" as="geometry" x="500" y="15" />
+        </mxCell>
+        <mxCell id="3" value="u_datapath&lt;br&gt;(datapath)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="parent_datapath">
+          <mxGeometry width="280" height="82" as="geometry" x="785" y="90" />
+        </mxCell>
+        <mxCell id="4" value="u_pc&lt;br&gt;(pc)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_pc">
+          <mxGeometry width="270" height="82" as="geometry" x="35" y="285" />
+        </mxCell>
+        <mxCell id="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="4" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_u_pc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="u_inst_mem&lt;br&gt;(instruction_memory)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_inst_mem">
+          <mxGeometry width="270" height="82" as="geometry" x="330" y="285" />
+        </mxCell>
+        <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="6" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_u_inst_mem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="u_imm_gen&lt;br&gt;(immediate_gen)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_imm_gen">
+          <mxGeometry width="270" height="82" as="geometry" x="625" y="285" />
+        </mxCell>
+        <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="8" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_u_imm_gen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="u_reg_file&lt;br&gt;(register_file)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_reg_file">
+          <mxGeometry width="270" height="82" as="geometry" x="920" y="285" />
+        </mxCell>
+        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="10" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_u_reg_file">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="u_alu&lt;br&gt;(alu)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_alu">
+          <mxGeometry width="270" height="82" as="geometry" x="1215" y="285" />
+        </mxCell>
+        <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="12" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_u_alu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="u_data_mem&lt;br&gt;(data_memory)" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="u_data_mem">
+          <mxGeometry width="270" height="82" as="geometry" x="1510" y="285" />
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="3" target="14" value="" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="hier_u_data_mem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="4" target="6" value="pc_current → addr" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_pc_imem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="6" target="8" value="instr → immediate decode" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_imem_imm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="6" target="10" value="rs1/rs2/rd fields" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_imem_rf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="8" target="12" value="I/S/B/U/J immediate" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_imm_alu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="10" target="12" value="rs1_data / rs2_data" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_rf_alu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="12" target="14" value="ALU address / result" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_alu_dmem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="10" target="14" value="rs2_data for SW" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_rf_dmem">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="14" target="10" value="read data for LW writeback" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_dmem_rf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=18;endArrow=block;endFill=1;fontStyle=0;strokeWidth=2;strokeColor=#000000;fontColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="4" target="12" value="PC operand for AUIPC" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="27" vlsit_library_cell="2" vlsit_library_instance="path_pc_alu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="&lt;b&gt;Block Functions and Interfaces&lt;/b&gt;&lt;br&gt;&lt;br&gt;u_pc / pc (src/pc.v): 32-bit synchronous-reset PC; selects PC+4, branch/JAL target, or masked JALR target.&lt;br&gt;u_inst_mem / instruction_memory (src/instruction_memory.v): parameterized 256 x 32 ROM, asynchronous read, alignment/range checks, program file parameter.&lt;br&gt;u_imm_gen / immediate_gen (src/immediate_gen.v): immediate extraction/sign extension for I/S/B/U/J.&lt;br&gt;u_reg_file / register_file (src/register_file.v): 32 x 32, two asynchronous read ports and one synchronous write; x0 hardwired zero; reset clears registers.&lt;br&gt;u_alu / alu (src/alu.v): required 8 operations plus retained SLT/SLTU extension; decoder issues only required subset.&lt;br&gt;u_data_mem / data_memory (src/data_memory.v): 1024 x 32 byte-addressed RAM; asynchronous read, posedge write, aligned/in-range LW/SW only; DMEM is not reset.&lt;br&gt;&lt;br&gt;Dashed links show functional relationships mediated by datapath logic/nets; there are no separate AXI/APB/valid-ready interfaces." style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;strokeWidth=2;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;align=center;verticalAlign=middle;spacing=8;align=left;verticalAlign=top;spacing=12;" vertex="1" parent="1" vlsit_library_sha256="15DFB183E267D2A94F8CAB316E01EB3D2E9D2F9C006DC816790A394F4123506C" vlsit_library_entry="32" vlsit_library_cell="2" vlsit_library_instance="panel_l2">
+          <mxGeometry width="1760" height="465" as="geometry" x="45" y="485" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

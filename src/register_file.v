@@ -1,20 +1,10 @@
 // =============================================================================
 // Module  : register_file
 // Project : RISC-V 32-bit Single-Cycle CPU
-// FPGA    : Synthesizable - Pure RTL, Gowin compatible
 // Language: Verilog-2001
 //
-// Hardware duoc sinh ra (GW1NR-9):
-//   - 32 registers x 32 bit = 1024 bit
-//   - Gowin EDA se map vao Distributed RAM (LUT-based) hoac BRAM
-//   - Doc: Asynchronous (combinational) -> de single-cycle CPU hoat dong
-//   - Ghi: Synchronous (rising edge clk)
-//   - x0 luon = 0 (RISC-V spec)
-//
-// LUU Y GOWIN:
-//   - Khong dung "initial" block - Gowin synthesis bo qua initial
-//   - Dat x0 = 0 bang logic kiem tra reg_write (if rd_addr != 0)
-//   - 2 cong doc dong thoi (rs1, rs2) - Gowin ho tro dual-port distributed RAM
+// Structure: 32 x 32-bit register array, two asynchronous read ports,
+// one synchronous write port. x0 is architecturally hardwired to zero.
 // =============================================================================
 
 module register_file (
@@ -32,8 +22,7 @@ module register_file (
 );
 
     // -------------------------------------------------------------------------
-    // Mang 32 thanh ghi x 32 bit
-    // Gowin EDA tu dong map vao Distributed RAM (LUT4-based) voi doc async
+    // Register array. Physical mapping depends on synthesis and target device.
     // -------------------------------------------------------------------------
     reg [31:0] regfile [0:31];
 
@@ -45,8 +34,7 @@ module register_file (
     always @(posedge clk) begin
         if (rst) begin
             // Reset dong bo toan bo thanh ghi ve 0
-            // Tren Gowin: sau Config, FF mac dinh = 0, nen reset nay la tuy chon
-            // Nhung nen giu de simulation chinh xac
+            // Clear all registers on the synchronous CPU reset.
             for (i = 0; i < 32; i = i + 1)
                 regfile[i] <= 32'd0;
         end else begin
@@ -56,9 +44,8 @@ module register_file (
     end
 
     // -------------------------------------------------------------------------
-    // Doc bat dong bo (combinational) - can cho single-cycle CPU
-    // x0 luon tra ve 0 (RISC-V spec: x0 = hardwired zero)
-    // Gowin: doc async = map vao LUT4 MUX tree
+    // Asynchronous reads required by this single-cycle datapath.
+    // x0 always reads as zero, independently of the stored array element.
     // -------------------------------------------------------------------------
     assign rs1_data = (rs1_addr == 5'd0) ? 32'd0 : regfile[rs1_addr];
     assign rs2_data = (rs2_addr == 5'd0) ? 32'd0 : regfile[rs2_addr];

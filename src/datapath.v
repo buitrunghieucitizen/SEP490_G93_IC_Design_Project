@@ -24,7 +24,11 @@ module datapath #(
     output reg         illegal_instr,
     output reg         misaligned,
     output reg         access_fault,
-    output reg         halted
+    output reg         halted,
+    output wire [31:0]  debug_pc,
+    output wire [31:0]  debug_instr,
+    output wire [31:0]  debug_alu_result,
+    output wire [31:0]  debug_wb_data
 );
     wire [31:0] pc_current;
     reg  [31:0] pc_next;
@@ -42,6 +46,11 @@ module datapath #(
     wire control_target_valid;
     wire fetch_fault, decode_fault, data_align_fault, data_range_fault;
     wire target_align_fault, target_range_fault, fault_now, commit_enable;
+
+    assign debug_pc = pc_current;
+    assign debug_instr = instr;
+    assign debug_alu_result = alu_result;
+    assign debug_wb_data = rd_data;
 
     pc u_pc (.clk(clk), .rst(rst), .pc_next(pc_next), .pc_current(pc_current));
     assign pc_plus4 = pc_current + 32'd4;

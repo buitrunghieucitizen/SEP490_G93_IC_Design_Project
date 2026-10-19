@@ -5,7 +5,15 @@ module cpu_top #(
     parameter MEM_FILE = "src/program.mem"
 ) (
     input  wire clk,
-    input  wire rst
+    input  wire rst,
+    output wire illegal_instr,
+    output wire misaligned,
+    output wire access_fault,
+    output wire halted,
+    output wire [31:0] debug_pc,
+    output wire [31:0] debug_instr,
+    output wire [31:0] debug_alu_result,
+    output wire [31:0] debug_wb_data
 );
     wire reg_write, alu_src, mem_write, mem_read, mem_to_reg;
     wire branch, jump, jalr, lui, auipc;
@@ -13,8 +21,6 @@ module cpu_top #(
     wire [6:0] opcode, funct7;
     wire [2:0] funct3;
     wire decode_illegal_instr;
-    wire illegal_instr, misaligned, access_fault, halted;
-
     control_unit u_ctrl (
         .opcode(opcode), .funct3(funct3), .funct7(funct7),
         .reg_write(reg_write), .alu_src(alu_src), .mem_write(mem_write),
@@ -30,6 +36,8 @@ module cpu_top #(
         .alu_ctrl(alu_ctrl), .decode_illegal_instr(decode_illegal_instr),
         .opcode(opcode), .funct3(funct3), .funct7(funct7),
         .illegal_instr(illegal_instr), .misaligned(misaligned),
-        .access_fault(access_fault), .halted(halted)
+        .access_fault(access_fault), .halted(halted),
+        .debug_pc(debug_pc), .debug_instr(debug_instr),
+        .debug_alu_result(debug_alu_result), .debug_wb_data(debug_wb_data)
     );
 endmodule

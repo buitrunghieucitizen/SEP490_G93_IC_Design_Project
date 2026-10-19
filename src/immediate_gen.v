@@ -1,7 +1,6 @@
 // =============================================================================
 // Module  : immediate_gen (Immediate Generator)
 // Project : RISC-V 32-bit Single-Cycle CPU
-// FPGA    : Synthesizable - Pure RTL, Gowin compatible
 // Language: Verilog-2001
 //
 // RISC-V Immediate Formats:
@@ -11,7 +10,6 @@
 //   U-type: [31:12] zero-extended + 12'b0
 //   J-type: [31|19:12|20|30:21] sign-extended 21-bit (bit 0 = 0)
 //
-// Hardware: ~120 LUT4 (MUX + sign-extension logic)
 // =============================================================================
 
 module immediate_gen (
