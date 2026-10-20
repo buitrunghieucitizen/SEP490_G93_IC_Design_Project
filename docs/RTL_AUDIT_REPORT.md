@@ -36,7 +36,7 @@ fpga_debug_wrapper (top tùy chọn)
 | `immediate_gen` | Tạo immediate I/S/B/U/J. | Sign-extension/bit layout được kiểm tra bằng 12 test vectors. |
 | `register_file` | 32×32, hai cổng đọc tổ hợp, một cổng ghi đồng bộ. | Reset xóa register array; x0 đọc 0 và bị chặn ghi. |
 | `alu` | ADD/SUB, logic, shift; SLT/SLTU còn lại để mở rộng. | SRA dùng toán hạng signed; shift dùng `b[4:0]`. ALU dư không được decode thành instruction CPU. |
-| `data_memory` | RAM 1024×32 mặc định, read tổ hợp, write tại posedge. | Kiểm tra căn chỉnh/range địa chỉ byte trước khi index; không reset/khởi tạo RAM. |
+| `data_memory` | RAM 128×32 mặc định (4,096 bit / 512 byte), read tổ hợp, write tại posedge; `MEM_SIZE` vẫn cấu hình được. | Kiểm tra căn chỉnh/range địa chỉ byte trước khi index; không reset/khởi tạo RAM. |
 | `fpga_debug_wrapper` | Bọc CPU; `debug_select` chọn PC, instruction, ALU result hoặc writeback ra bus 32-bit; xuất fault flags. | Tách biệt logic wrapper khỏi datapath; chưa gán chân board. |
 
 ## Tập lệnh và control

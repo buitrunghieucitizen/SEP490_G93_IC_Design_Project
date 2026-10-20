@@ -1,7 +1,7 @@
 // Verilog-2001 single-cycle datapath with sticky debug-fault handling.
 module datapath #(
     parameter IMEM_DEPTH = 256,
-    parameter DMEM_SIZE = 1024,
+    parameter DMEM_SIZE = 128,
     parameter MEM_FILE = "src/program.mem"
 ) (
     input  wire        clk,

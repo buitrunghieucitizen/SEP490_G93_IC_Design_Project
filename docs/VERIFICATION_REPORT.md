@@ -15,7 +15,7 @@ Các testbench unit, integration, demo và wrapper ghi waveform VCD vào `out/`:
 | `tb_alu` | PASS — 29 PASS, 0 FAIL |
 | `tb_control_unit` | PASS — 28 decode checks (20 encoding hợp lệ + 8 negative encodings) |
 | `tb_immediate_gen` | PASS — 12 vectors I/S/B/U/J, positive/negative offsets |
-| `tb_memory` | PASS — 10 checks IMEM/DMEM |
+| `tb_memory` | PASS — 12 checks IMEM/DMEM; DMEM word cuối ở byte 508 hợp lệ, byte 512 ngoài vùng bị từ chối |
 | `tb_cpu` | PASS — 91 assertions; 20 instruction set và fault/reset/integration cases |
 | `tb_demo_sum` | PASS — 6 checks; x3=x4=DMEM[0]=55 |
 | `tb_fpga_debug_wrapper` | PASS — 4 mux selections + status |
@@ -43,7 +43,7 @@ Negative cases gồm opcode không hỗ trợ, SLT ngoài scope, R-type funct7 s
 ## Memory unit test
 
 - IMEM kiểm tra address 0, word cuối trong vùng, byte address không căn chỉnh, và address đúng cuối vùng `1024` bị từ chối.
-- DMEM kiểm tra synchronous write/asynchronous read ở word 0 và word 1, misaligned write bị chặn, out-of-range write không alias về word 0.
+- DMEM mặc định 128×32: kiểm tra synchronous write/asynchronous read ở word 0, word 1 và word cuối 127 (byte address 508); byte address 512 bị báo out-of-range và write không alias về word 0.
 - RAM contents được seed trong testbench khi cần. RTL không giả định DMEM khởi động bằng 0.
 
 ## Warnings quan sát được

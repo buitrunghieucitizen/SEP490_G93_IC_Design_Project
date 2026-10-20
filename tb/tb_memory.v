@@ -12,7 +12,8 @@ module tb_memory;
     wire imem_misaligned, imem_out_of_range;
     integer errors, tests;
 
-    data_memory #(.MEM_SIZE(1024)) dmem (
+    // Use the RTL default depth (128 words) and exercise its last valid address.
+    data_memory dmem (
         .clk(clk), .addr(addr), .wr_data(wr_data), .mem_write(mem_write),
         .mem_read(mem_read), .rd_data(rd_data),
         .addr_misaligned(dmem_misaligned), .addr_out_of_range(dmem_out_of_range)
@@ -85,10 +86,22 @@ module tb_memory;
         tests=tests+1;
         if (dmem.mem[0] !== 32'h12345678) begin $display("FAIL misaligned store changed word0"); errors=errors+1; end
         else $display("PASS misaligned SW preserved DMEM[0]=%08h",dmem.mem[0]);
-        addr=32'd4096; mem_write=1; #1;
+        addr=32'd508; wr_data=32'h55AA55AA; mem_write=1; mem_read=0;
+        #1;
+        tests=tests+1;
+        if (dmem_misaligned || dmem_out_of_range) begin
+            $display("FAIL DMEM last word address 508 rejected"); errors=errors+1;
+        end else $display("PASS DMEM last word address 508 accepted");
+        @(posedge clk); #1; mem_write=0; mem_read=1; #1;
+        tests=tests+1;
+        if (rd_data !== 32'h55AA55AA) begin
+            $display("FAIL DMEM[127] actual=%08h expected=55AA55AA",rd_data); errors=errors+1;
+        end else $display("PASS DMEM[127] actual=%08h expected=55AA55AA",rd_data);
+
+        addr=32'd512; mem_write=1; mem_read=0; #1;
         tests=tests+1;
         if (!dmem_out_of_range || dmem_misaligned) begin $display("FAIL DMEM range flags"); errors=errors+1; end
-        else $display("PASS DMEM address 4096 alignment/range flags: 0/1");
+        else $display("PASS DMEM address 512 alignment/range flags: 0/1");
         @(posedge clk); #1; mem_write=0;
         tests=tests+1;
         if (dmem.mem[0] !== 32'h12345678) begin $display("FAIL out-of-range store aliased word0"); errors=errors+1; end

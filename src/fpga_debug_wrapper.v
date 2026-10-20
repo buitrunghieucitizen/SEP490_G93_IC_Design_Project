@@ -2,7 +2,7 @@
 // must be supplied for the selected Gowin board.
 module fpga_debug_wrapper #(
     parameter IMEM_DEPTH = 256,
-    parameter DMEM_SIZE = 1024,
+    parameter DMEM_SIZE = 128,
     parameter MEM_FILE = "src/program.mem"
 ) (
     input  wire        clk,

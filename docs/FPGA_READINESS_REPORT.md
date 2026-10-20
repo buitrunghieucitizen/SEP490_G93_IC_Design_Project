@@ -14,21 +14,24 @@
 | Board, clock, reset polarity, I/O | Chưa biết |
 | Pin constraints/timing constraints | Không có file trong `constraints/` |
 | Resource/timing/Fmax | Chưa có số liệu và không được suy đoán |
-| FPGA wrapper | Có `fpga_debug_wrapper`, compile/sim PASS; chưa map ra board pins |
+| FPGA wrapper | Có `fpga_debug_wrapper`, compile/sim PASS với DMEM mặc định 128 word; chưa map ra board pins |
+| IF0008 đã báo trước đó | DMEM được giảm 1024 → 128 word để giảm mảng từ 32,768 xuống 4,096 bit; chưa chạy lại Gowin nên chưa xác nhận lỗi đã hết |
 
 ## Synthesis compatibility audit
 
 Các module dùng Verilog-2001 synthesizable RTL: `always @(*)` cho logic tổ hợp có default assignment, `always @(posedge clk)` cho trạng thái, nonblocking assignment trong sequential blocks. Không có `always_comb`, `always_ff`, interface/package hoặc testbench construct trong synthesizable source. Icarus biên dịch cả `fpga_debug_wrapper` và toàn core với `-g2001`.
 
-`$readmemh` nằm trong initial block của instruction ROM. Đây là cách khởi tạo ROM phổ biến trong FPGA flow, nhưng cần xác nhận phiên bản Gowin EDA và memory inference report. DMEM và register file không được khởi tạo bằng RTL; DMEM không reset, RF reset đồng bộ.
+`$readmemh` nằm trong initial block của instruction ROM, parameter mặc định là `MEM_FILE="src/program.mem"`. Với Gowin project đặt ở thư mục riêng, cần bảo toàn file tại đường dẫn tương đối `src/program.mem` tính từ project working directory hoặc override `MEM_FILE` theo layout thực tế. Đây là cách khởi tạo ROM phổ biến trong FPGA flow, nhưng đường dẫn và kết quả ROM inference cần xác nhận bằng phiên bản Gowin EDA thực tế. DMEM và register file không được khởi tạo bằng RTL; DMEM không reset, RF reset đồng bộ.
 
 ## RAM inference và single-cycle tradeoff
 
 - IMEM 256×32: ROM đọc bất đồng bộ từ `PC`; nội dung từ parameter `MEM_FILE`, mặc định `src/program.mem`.
-- DMEM 1024×32: ghi đồng bộ, đọc bất đồng bộ; địa chỉ byte được kiểm tra căn chỉnh/range trước khi truy cập.
+- DMEM 128×32 mặc định (4,096 bit = 512 byte): ghi đồng bộ, đọc bất đồng bộ; byte address 508 là word cuối hợp lệ, 512 là ngoài vùng. `DMEM_SIZE` vẫn cho phép cấu hình lại khi mở rộng.
 - Register file 32×32: hai cổng đọc bất đồng bộ và một cổng ghi đồng bộ; reset xóa cả register array.
 
 Đọc bất đồng bộ của IMEM/DMEM là một rủi ro thực tế cho suy luận BSRAM vì block memory primitive có các mode/clock/latency cụ thể. Tool có thể dùng Distributed RAM hoặc LUT/Flip-Flop, hoặc không nhận ra pattern mong muốn. Không được kết luận BSRAM đã được sử dụng nếu chưa xem Gowin synthesis report. RF nhiều cổng đọc và reset toàn array cũng có thể ảnh hưởng memory inference.
+
+Việc giảm DMEM từ 1024×32 (32,768 bit) xuống 128×32 (4,096 bit) giảm 28,672 bit dung lượng mảng, tương đương 87.5%. Điều này nhằm giảm phần DFF mà synthesis đã báo cho `mem`; **chưa thể kết luận lỗi IF0008 đã hết** trước khi chạy lại Gowin Synthesis, vì tổng DFF còn bao gồm register file và trạng thái khác.
 
 Đường critical-path dự kiến dài nhất là LW: PC register → asynchronous IMEM → decode/control và RF read/immediate → address adder → asynchronous DMEM read → writeback mux → setup của RF. Đây là nhận định từ cấu trúc RTL, **không phải timing report**.
 

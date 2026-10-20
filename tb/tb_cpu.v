@@ -260,7 +260,7 @@ module tb_cpu;
         clear_program(); put(0,enc_i(12'd1,0,3'b000,1,7'b0010011));
         put(1,enc_i(12'd0,1,3'b010,5,7'b0000011)); begin_case(); wait_cycles(2);
         check_status(0,1,0,1); check_pc(32'd4); check_reg(5,32'd0);
-        clear_program(); put(0,enc_u(20'd1,1,7'b0110111));
+        clear_program(); put(0,enc_i(12'd512,0,3'b000,1,7'b0010011));
         put(1,enc_i(12'd0,1,3'b010,5,7'b0000011)); begin_case(); wait_cycles(2);
         check_status(0,0,1,1); check_pc(32'd4); check_reg(5,32'd0);
         clear_program(); put(0,enc_i(12'd1,0,3'b000,1,7'b0010011));
@@ -269,7 +269,7 @@ module tb_cpu;
         checks=checks+1;
         if (dut.u_datapath.u_data_mem.mem[0] !== 32'd8) begin $display("FAIL misaligned SW wrote RAM"); errors=errors+1; end
         else $display("PASS misaligned SW did not modify RAM[0]");
-        clear_program(); put(0,enc_u(20'd1,1,7'b0110111));
+        clear_program(); put(0,enc_i(12'd512,0,3'b000,1,7'b0010011));
         put(1,enc_s(12'd0,2,1,3'b010)); begin_case(); wait_cycles(2);
         check_status(0,0,1,1);
         checks=checks+1;

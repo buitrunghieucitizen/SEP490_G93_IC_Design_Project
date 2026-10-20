@@ -1,7 +1,7 @@
 // CPU integration top. MEM_FILE is resolved relative to the simulation cwd.
 module cpu_top #(
     parameter IMEM_DEPTH = 256,
-    parameter DMEM_SIZE = 1024,
+    parameter DMEM_SIZE = 128,
     parameter MEM_FILE = "src/program.mem"
 ) (
     input  wire clk,

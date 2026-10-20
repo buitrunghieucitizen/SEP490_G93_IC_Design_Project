@@ -39,11 +39,12 @@ ALU vẫn giữ phép so sánh SLT/SLTU để có thể mở rộng, nhưng cont
 - `rst`: reset đồng bộ, active-high. PC về 0; toàn bộ thanh ghi x1–x31 được xóa, x0 vẫn bằng 0; các cờ lỗi và `halted` được xóa. Reset chặn mọi ghi register/RAM.
 - RAM dữ liệu **không bị xóa bởi reset CPU**; nội dung được giữ lại qua reset.
 - IMEM mặc định 256 word (1 KiB), địa chỉ byte bắt đầu từ 0, đọc tổ hợp.
-- DMEM mặc định 1024 word (4 KiB), địa chỉ byte bắt đầu từ 0, đọc tổ hợp và ghi đồng bộ.
+- DMEM mặc định 128 word × 32 bit = 4,096 bit (512 byte), địa chỉ byte bắt đầu từ 0, đọc tổ hợp và ghi đồng bộ. `DMEM_SIZE` vẫn là parameter để cấu hình dung lượng lớn hơn.
 - Chỉ hỗ trợ instruction dài 32 bit và `LW`/`SW` căn chỉnh 4 byte. Dữ liệu word theo quy ước little-endian; chưa có byte/halfword access.
 - Địa chỉ được kiểm tra đầy đủ trước khi dùng làm chỉ số word; địa chỉ cao không bị alias về đầu RAM.
-- `cpu_top` có parameter `MEM_FILE` (mặc định `src/program.mem`), `IMEM_DEPTH` và `DMEM_SIZE`. Đường dẫn `.mem` được tính từ **thư mục làm việc hiện tại** của simulator. Khi chạy `tb_cpu`, có thể truyền `+PROGRAM=đường_dẫn.mem` để chọn chương trình.
+- `cpu_top` có parameter `MEM_FILE` (mặc định `src/program.mem`), `IMEM_DEPTH` và `DMEM_SIZE` (mặc định 128 word). Đường dẫn `.mem` được tính từ **thư mục làm việc hiện tại** của simulator. Khi chạy `tb_cpu`, có thể truyền `+PROGRAM=đường_dẫn.mem` để chọn chương trình.
 - Mỗi dòng `.mem` là một word instruction 32-bit dạng hexadecimal, không có tiền tố `0x`. Không thay đường dẫn thành `tb/programs/program.mem` nếu muốn chạy chương trình trong `src/program.mem`; đây là hai file khác nhau.
+- Trong Gowin, giữ `program.mem` ở `src/program.mem` bên dưới thư mục project (hoặc cấu hình parameter `MEM_FILE` trỏ đúng vị trí tương đối trong project). Gowin EDA chưa chạy trong lần kiểm tra này, nên cần xác nhận ROM được nạp từ file bằng báo cáo synthesis/simulation của phiên bản tool đang dùng.
 - `$readmemh` nạp các dòng có trong file; nếu file ngắn hơn ROM, các word chưa nạp không có giá trị xác định. Chương trình cần tránh chạy tuần tự vào vùng chưa khởi tạo (thường kết thúc bằng vòng lặp).
 
 Khi có instruction illegal, fetch/data/target sai căn chỉnh hoặc địa chỉ ngoài vùng nhớ, CPU chặn ghi của instruction gây lỗi, giữ PC tại instruction gây lỗi, bật cờ trạng thái tương ứng và giữ `halted` đến reset. Đây là cơ chế debug đơn giản, không phải trap chuẩn RISC-V. Với branch, chỉ kiểm tra đích khi branch được lấy. JAL/JALR có đích lỗi sẽ không ghi thanh ghi link. JALR chỉ xóa bit 0; bit 1 bằng 1 vẫn tạo lỗi căn chỉnh cho instruction 32-bit.
@@ -114,7 +115,7 @@ Bảng dưới đây ghi kết quả thực tế của regression Icarus ngày 2
 |---|---|---|
 | `tb_control_unit` | 20 encoding hợp lệ và 8 lệnh/mã hóa không hợp lệ | PASS: 28 checks |
 | `tb_immediate_gen` | I/S/B/U/J, immediate dương/âm, J/B offsets | PASS: 12 checks |
-| `tb_memory` | IMEM read/boundary/alignment/range; DMEM sync write, async read và bảo vệ địa chỉ | PASS: 10 checks |
+| `tb_memory` | IMEM read/boundary/alignment/range; DMEM sync write, async read, word cuối và địa chỉ 512 ngoài vùng | PASS: 12 checks |
 | `tb_demo_sum` | Chương trình tổng 1..10; x3/x4/DMEM[0] = 55 | PASS: 6 checks |
 | `tb_fpga_debug_wrapper` | Chọn PC, instruction, ALU result, writeback và trạng thái | PASS: 5 checks |
 
