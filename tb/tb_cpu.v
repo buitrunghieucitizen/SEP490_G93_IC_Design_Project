@@ -6,6 +6,7 @@ module tb_cpu;
     wire illegal_instr, misaligned, access_fault, halted;
     integer errors;
     integer i;
+    integer checks;
     integer program_mode;
     reg [8*256-1:0] program_file;
 
@@ -17,6 +18,28 @@ module tb_cpu;
 
     initial clk = 1'b0;
     always #5 clk = ~clk;
+
+    // VCD waveform for GTKWave. Dump key CPU signals only, not full RAM arrays.
+    initial begin
+        $dumpfile("out/waveform_cpu.vcd");
+        $dumpvars(0, tb_cpu.clk, tb_cpu.rst);
+        $dumpvars(0, tb_cpu.dut.debug_pc, tb_cpu.dut.debug_instr,
+                  tb_cpu.dut.debug_alu_result, tb_cpu.dut.debug_wb_data);
+        $dumpvars(0, tb_cpu.dut.opcode, tb_cpu.dut.funct3, tb_cpu.dut.funct7,
+                  tb_cpu.dut.reg_write, tb_cpu.dut.alu_src,
+                  tb_cpu.dut.mem_read, tb_cpu.dut.mem_write,
+                  tb_cpu.dut.branch, tb_cpu.dut.jump, tb_cpu.dut.alu_ctrl,
+                  tb_cpu.dut.illegal_instr, tb_cpu.dut.misaligned,
+                  tb_cpu.dut.access_fault, tb_cpu.dut.halted);
+        $dumpvars(0, tb_cpu.dut.u_datapath.pc_next,
+                  tb_cpu.dut.u_datapath.rs1_addr, tb_cpu.dut.u_datapath.rs2_addr,
+                  tb_cpu.dut.u_datapath.rd_addr, tb_cpu.dut.u_datapath.rs1_data,
+                  tb_cpu.dut.u_datapath.rs2_data, tb_cpu.dut.u_datapath.imm,
+                  tb_cpu.dut.u_datapath.alu_a, tb_cpu.dut.u_datapath.alu_b,
+                  tb_cpu.dut.u_datapath.mem_rd_data,
+                  tb_cpu.dut.u_datapath.fault_now,
+                  tb_cpu.dut.u_datapath.commit_enable);
+    end
 
     function [31:0] enc_r;
         input [6:0] f7; input [4:0] rs2; input [4:0] rs1;
@@ -73,37 +96,44 @@ module tb_cpu;
         input [4:0] index;
         input [31:0] expected;
         begin
+            checks=checks+1;
             if (dut.u_datapath.u_reg_file.regfile[index] !== expected) begin
                 $display("FAIL reg x%0d got=%08h expected=%08h", index,
                     dut.u_datapath.u_reg_file.regfile[index], expected);
                 errors = errors + 1;
-            end
+            end else $display("PASS reg x%0d actual=%08h expected=%08h",index,
+                dut.u_datapath.u_reg_file.regfile[index],expected);
         end
     endtask
     task check_status;
         input exp_illegal; input exp_misaligned; input exp_access; input exp_halted;
         begin
+            checks=checks+1;
             if ({illegal_instr,misaligned,access_fault,halted} !==
                 {exp_illegal,exp_misaligned,exp_access,exp_halted}) begin
                 $display("FAIL status illegal/misaligned/access/halted=%b%b%b%b expected=%b%b%b%b",
                     illegal_instr,misaligned,access_fault,halted,
                     exp_illegal,exp_misaligned,exp_access,exp_halted);
                 errors = errors + 1;
-            end
+            end else $display("PASS status actual=%b%b%b%b expected=%b%b%b%b",
+                illegal_instr,misaligned,access_fault,halted,
+                exp_illegal,exp_misaligned,exp_access,exp_halted);
         end
     endtask
     task check_pc;
         input [31:0] expected;
         begin
+            checks=checks+1;
             if (dut.u_datapath.pc_current !== expected) begin
                 $display("FAIL PC got=%08h expected=%08h",dut.u_datapath.pc_current,expected);
                 errors = errors + 1;
-            end
+            end else $display("PASS PC actual=%08h expected=%08h",dut.u_datapath.pc_current,expected);
         end
     endtask
 
     initial begin
         errors = 0;
+        checks = 0;
         rst = 1'b1;
         #1;
         program_mode = $value$plusargs("PROGRAM=%s", program_file);
@@ -180,25 +210,32 @@ module tb_cpu;
         check_reg(22,32'd140); check_reg(24,32'd148); check_reg(25,32'd0);
         check_reg(26,32'd7); check_reg(27,32'd35); check_reg(28,32'h80000000);
         check_reg(29,32'd0); check_reg(30,32'h80000000); check_reg(31,32'hF0000000);
+        checks=checks+1;
         if (dut.u_datapath.u_reg_file.regfile[0] !== 32'd0) begin
             $display("FAIL x0 changed"); errors=errors+1;
-        end
+        end else $display("PASS x0 remains zero");
+        checks=checks+1;
         if (dut.u_datapath.u_data_mem.mem[0] !== 32'd8 || dut.u_datapath.u_data_mem.mem[1] !== 32'd2) begin
             $display("FAIL RAM contents word0=%h word1=%h",dut.u_datapath.u_data_mem.mem[0],dut.u_datapath.u_data_mem.mem[1]);
             errors=errors+1;
-        end
+        end else $display("PASS RAM[0]=%08h RAM[1]=%08h expected=00000008/00000002",
+            dut.u_datapath.u_data_mem.mem[0],dut.u_datapath.u_data_mem.mem[1]);
         check_status(0,0,0,0);
 
         // Reset while running clears registers/status/PC, but retains RAM.
         rst=1'b1; @(posedge clk); #1;
         check_pc(32'd0); check_reg(1,32'd0); check_reg(0,32'd0);
+        checks=checks+1;
         if (dut.u_datapath.u_data_mem.mem[0] !== 32'd8) begin $display("FAIL RAM reset policy"); errors=errors+1; end
+        else $display("PASS RAM retained across reset: actual=%08h expected=00000008",dut.u_datapath.u_data_mem.mem[0]);
         rst=1'b0;
 
         // Illegal unsupported instruction: no register or memory side effect.
         clear_program(); put(0,32'hFFFFFFFF); begin_case(); wait_cycles(1);
         check_status(1,0,0,1); check_pc(32'd0); check_reg(1,32'd0);
+        checks=checks+1;
         if (dut.u_datapath.u_data_mem.mem[0] !== 32'd8) begin $display("FAIL illegal modified RAM"); errors=errors+1; end
+        else $display("PASS illegal instruction did not modify RAM[0]");
         wait_cycles(3); check_status(1,0,0,1); check_pc(32'd0); // sticky until reset
         rst=1'b1; @(posedge clk); #1; check_status(0,0,0,0); rst=1'b0;
 
@@ -215,23 +252,29 @@ module tb_cpu;
         check_status(1,0,0,1); check_reg(5,32'd0);
         clear_program(); put(0,enc_s(12'd0,2,0,3'b000)); begin_case(); wait_cycles(1);
         check_status(1,0,0,1);
+        checks=checks+1;
         if (dut.u_datapath.u_data_mem.mem[0] !== 32'd8) begin $display("FAIL illegal store wrote RAM"); errors=errors+1; end
+        else $display("PASS illegal SW encoding did not modify RAM[0]");
 
         // Misaligned and out-of-range data accesses halt before committing.
         clear_program(); put(0,enc_i(12'd1,0,3'b000,1,7'b0010011));
         put(1,enc_i(12'd0,1,3'b010,5,7'b0000011)); begin_case(); wait_cycles(2);
         check_status(0,1,0,1); check_pc(32'd4); check_reg(5,32'd0);
-        clear_program(); put(0,enc_u(20'd1,1,7'b0110111));
+        clear_program(); put(0,enc_i(12'd512,0,3'b000,1,7'b0010011));
         put(1,enc_i(12'd0,1,3'b010,5,7'b0000011)); begin_case(); wait_cycles(2);
         check_status(0,0,1,1); check_pc(32'd4); check_reg(5,32'd0);
         clear_program(); put(0,enc_i(12'd1,0,3'b000,1,7'b0010011));
         put(1,enc_s(12'd0,2,1,3'b010)); begin_case(); wait_cycles(2);
         check_status(0,1,0,1);
+        checks=checks+1;
         if (dut.u_datapath.u_data_mem.mem[0] !== 32'd8) begin $display("FAIL misaligned SW wrote RAM"); errors=errors+1; end
-        clear_program(); put(0,enc_u(20'd1,1,7'b0110111));
+        else $display("PASS misaligned SW did not modify RAM[0]");
+        clear_program(); put(0,enc_i(12'd512,0,3'b000,1,7'b0010011));
         put(1,enc_s(12'd0,2,1,3'b010)); begin_case(); wait_cycles(2);
         check_status(0,0,1,1);
+        checks=checks+1;
         if (dut.u_datapath.u_data_mem.mem[0] !== 32'd8) begin $display("FAIL out-of-range SW aliased to RAM"); errors=errors+1; end
+        else $display("PASS out-of-range SW did not alias RAM[0]");
 
         // Taken branch with a 2-byte target and JAL/JALR target failures.
         clear_program(); put(0,enc_b(13'd2,0,0,3'b000)); begin_case(); wait_cycles(1);
@@ -242,6 +285,9 @@ module tb_cpu;
         check_status(0,1,0,1); check_pc(32'd0); check_reg(5,32'd0);
         clear_program(); put(0,enc_j(21'd1024,5)); begin_case(); wait_cycles(1);
         check_status(0,0,1,1); check_pc(32'd0); check_reg(5,32'd0);
+        clear_program(); put(0,enc_u(20'd1,1,7'b0110111));
+        put(1,enc_i(12'd0,1,3'b000,5,7'b1100111)); begin_case(); wait_cycles(2);
+        check_status(0,0,1,1); check_pc(32'd4); check_reg(5,32'd0);
         clear_program(); put(0,enc_i(12'd6,0,3'b000,1,7'b0010011));
         put(1,enc_i(12'd0,1,3'b000,1,7'b1100111)); begin_case(); wait_cycles(2);
         check_status(0,1,0,1); check_pc(32'd4); check_reg(1,32'd6);
@@ -262,7 +308,15 @@ module tb_cpu;
         check_reg(3,32'h80000000); check_reg(4,32'hffffffff);
         check_status(0,0,0,0);
 
-        if (errors == 0) $display("tb_cpu: PASS (20 instructions, datapath and fault cases)");
+        // Register corner cases: rs2==rd and rs1==rs2 in the same instruction.
+        clear_program(); put(0,enc_i(12'd3,0,3'b000,1,7'b0010011));
+        put(1,enc_i(12'd4,0,3'b000,2,7'b0010011));
+        put(2,enc_r(7'b0000000,2,1,3'b000,2));
+        put(3,enc_r(7'b0000000,1,1,3'b000,3));
+        put(4,enc_j(21'd0,0)); begin_case(); wait_cycles(5);
+        check_reg(2,32'd7); check_reg(3,32'd6); check_status(0,0,0,0);
+
+        if (errors == 0) $display("tb_cpu: PASS (%0d assertions, 20-instruction datapath and fault cases)",checks);
         else $display("tb_cpu: FAIL (%0d errors)",errors);
         $finish;
         end

@@ -1,6 +1,6 @@
 // 32-bit word-addressed RAM with asynchronous read and synchronous write.
 module data_memory #(
-    parameter MEM_SIZE = 1024
+    parameter MEM_SIZE = 128
 ) (
     input  wire        clk,
     input  wire [31:0] addr,

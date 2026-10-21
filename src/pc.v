@@ -1,16 +1,7 @@
 // =============================================================================
 // Module  : pc (Program Counter)
 // Project : RISC-V 32-bit Single-Cycle CPU
-// FPGA    : Synthesizable - Pure RTL, Gowin compatible
 // Language: Verilog-2001
-//
-// Hardware duoc sinh ra (GW1NR-9):
-//   - 1x DFF 32-bit (~32 FF)
-//   - Reset dong bo hoac bat dong bo tuy theo tool map
-//
-// LUU Y GOWIN:
-//   - Dung reset dong bo (synchronous reset) de BRAM va FF hoat dong chinh xac
-//   - Khong dung asynchronous reset tru khi can thiet (Gowin ho tro ca hai)
 // =============================================================================
 
 module pc (
@@ -21,8 +12,7 @@ module pc (
 );
 
     // -------------------------------------------------------------------------
-    // Flip-flop 32-bit voi synchronous reset
-    // Gowin: FF se duoc pack vao slice FF, reset = 0x0000_0000
+    // Synchronous 32-bit PC register with active-high reset.
     // -------------------------------------------------------------------------
     always @(posedge clk) begin
         if (rst)

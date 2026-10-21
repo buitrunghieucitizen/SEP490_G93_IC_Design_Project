@@ -52,6 +52,15 @@
       "options": {"cwd": "${workspaceFolder}"},
       "dependsOn": "Compile CPU test (Verilog-2001)",
       "problemMatcher": []
+    },
+    {
+      "label": "Run full Verilog-2001 regression",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/tb/run_regression.ps1"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "group": "test",
+      "problemMatcher": []
     }
   ]
 }
