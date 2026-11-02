@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="board_top" Lut="1" T_Register="4402(0)" T_Alu="64(0)" T_Lut="3015(1)">
+ <SubModule name="u_cpu" T_Register="4324(0)" T_Alu="64(0)" T_Lut="2918(0)">
+  <SubModule name="u_ctrl" Lut="3" T_Lut="3(3)"/>
+  <SubModule name="u_datapath" Register="4" Alu="32" Lut="269" T_Register="4324(4)" T_Alu="64(32)" T_Lut="2915(269)">
+   <SubModule name="u_pc" Register="32" Lut="3" T_Register="32(32)" T_Lut="3(3)"/>
+   <SubModule name="u_inst_mem" Lut="7" T_Lut="7(7)"/>
+   <SubModule name="u_imm_gen" Lut="12" T_Lut="12(12)"/>
+   <SubModule name="u_reg_file" Register="192" Lut="423" T_Register="192(192)" T_Lut="423(423)"/>
+   <SubModule name="u_alu" Alu="32" T_Alu="32(32)"/>
+   <SubModule name="u_data_mem" Register="4096" Lut="2201" T_Register="4096(4096)" T_Lut="2201(2201)"/>
+  </SubModule>
+ </SubModule>
+ <SubModule name="u_capture" Register="32" Lut="2" T_Register="32(32)" T_Lut="2(2)"/>
+ <SubModule name="u_display" Register="46" Lut="94" T_Register="46(46)" T_Lut="94(94)"/>
+</Module>

@@ -1,0 +1,25 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW5A-25A" pn="GW5A-LV25UG324C2/I1">gw5a25a-008</Device>
+    <FileList>
+        <File path="src/alu.v" type="file.verilog" enable="1"/>
+        <File path="src/board_top.v" type="file.verilog" enable="1"/>
+        <File path="src/control_unit.v" type="file.verilog" enable="1"/>
+        <File path="src/cpu_top.v" type="file.verilog" enable="1"/>
+        <File path="src/cpu_wb_probe.v" type="file.verilog" enable="1"/>
+        <File path="src/data_memory.v" type="file.verilog" enable="1"/>
+        <File path="src/datapath.v" type="file.verilog" enable="1"/>
+        <File path="src/immediate_gen.v" type="file.verilog" enable="1"/>
+        <File path="src/instruction_memory.v" type="file.verilog" enable="1"/>
+        <File path="src/led7_test_top.v" type="file.verilog" enable="1"/>
+        <File path="src/pc.v" type="file.verilog" enable="1"/>
+        <File path="src/register_file.v" type="file.verilog" enable="1"/>
+        <File path="src/result_capture.v" type="file.verilog" enable="1"/>
+        <File path="src/Project_Capstone.cst" type="file.cst" enable="1"/>
+        <File path="src/FPGA_DOAN.sdc" type="file.sdc" enable="1"/>
+        <File path="src/program.mem" type="file.other" enable="1"/>
+    </FileList>
+</Project>

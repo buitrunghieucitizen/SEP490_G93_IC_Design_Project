@@ -1,0 +1,120 @@
+[
+ {
+  "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+  "InstLine" : 4,
+  "InstName" : "board_top",
+  "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+  "ModuleLine" : 4,
+  "ModuleName" : "board_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "InstLine" : 18,
+    "InstName" : "u_cpu",
+    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "cpu_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v",
+      "InstLine" : 24,
+      "InstName" : "u_ctrl",
+      "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/control_unit.v",
+      "ModuleLine" : 2,
+      "ModuleName" : "control_unit"
+     },
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v",
+      "InstLine" : 32,
+      "InstName" : "u_datapath",
+      "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+      "ModuleLine" : 2,
+      "ModuleName" : "datapath",
+      "SubInsts" : [
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstLine" : 55,
+        "InstName" : "u_pc",
+        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/pc.v",
+        "ModuleLine" : 7,
+        "ModuleName" : "pc"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstLine" : 58,
+        "InstName" : "u_inst_mem",
+        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/instruction_memory.v",
+        "ModuleLine" : 2,
+        "ModuleName" : "instruction_memory"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstLine" : 70,
+        "InstName" : "u_imm_gen",
+        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/immediate_gen.v",
+        "ModuleLine" : 15,
+        "ModuleName" : "immediate_gen"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstLine" : 71,
+        "InstName" : "u_reg_file",
+        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/register_file.v",
+        "ModuleLine" : 10,
+        "ModuleName" : "register_file"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstLine" : 79,
+        "InstName" : "u_alu",
+        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/alu.v",
+        "ModuleLine" : 4,
+        "ModuleName" : "alu"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstLine" : 81,
+        "InstName" : "u_data_mem",
+        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/data_memory.v",
+        "ModuleLine" : 2,
+        "ModuleName" : "data_memory"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "InstLine" : 26,
+    "InstName" : "u_probe",
+    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_wb_probe.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "cpu_wb_probe"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "InstLine" : 33,
+    "InstName" : "u_capture",
+    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/result_capture.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "result_capture"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "InstLine" : 41,
+    "InstName" : "u_display",
+    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "ModuleLine" : 47,
+    "ModuleName" : "led7_display"
+   }
+  ]
+ },
+ {
+  "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/led7_test_top.v",
+  "InstLine" : 6,
+  "InstName" : "led7_test_top",
+  "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/led7_test_top.v",
+  "ModuleLine" : 6,
+  "ModuleName" : "led7_test_top"
+ }
+]

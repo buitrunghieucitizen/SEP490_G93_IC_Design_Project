@@ -1,0 +1,65 @@
+{
+ "Device" : "GW5A-25A",
+ "Files" : [
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/alu.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/control_unit.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_wb_probe.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/data_memory.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/immediate_gen.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/instruction_memory.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/led7_test_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/pc.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/register_file.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/result_capture.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/impl/temp/rtl_parser.result",
+ "Top" : "board_top",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}
