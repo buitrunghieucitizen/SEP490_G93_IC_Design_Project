@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW5A-25A" package="UBGA324" speed="2" partNumber="GW5A-LV25UG324C2/I1"/>
+    <FileList>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\alu.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\control_unit.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\cpu_top.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\data_memory.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\datapath.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\immediate_gen.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\instruction_memory.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\pc.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\register_file.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\led7_test_top.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\result_capture.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\cpu_wb_probe.v" type="verilog"/>
+        <File path="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\board_top.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="enable_dsrm" value="0"/>
+        <Option type="global_freq" value="100.000"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\impl\gwsynthesis\Project_Capstone.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="top_module" value="board_top"/>
+        <Option type="vcc" value="0.9"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>
