@@ -4,6 +4,9 @@ module tb_immediate_gen;
     reg [31:0] instr;
     wire [31:0] imm;
     integer errors, tests;
+    integer seed;
+    integer i;
+    reg [11:0] rimm;
     immediate_gen dut (.instr(instr), .imm(imm));
 
     initial begin
@@ -42,6 +45,18 @@ module tb_immediate_gen;
             end else $display("PASS imm instr=%08h actual=%08h expected=%08h",instr,imm,expected);
         end
     endtask
+    // Quiet check for random round-trip vectors: only FAIL is printed.
+    task check_quiet;
+        input [31:0] test_instr;
+        input [31:0] expected;
+        begin
+            instr=test_instr; #1; tests=tests+1;
+            if (imm !== expected) begin
+                $display("FAIL imm instr=%08h got=%08h expected=%08h",instr,imm,expected);
+                errors=errors+1;
+            end
+        end
+    endtask
     initial begin
         errors=0; tests=0;
         check(enc_i(12'h7ff,7'b0010011),32'h000007ff);
@@ -56,6 +71,31 @@ module tb_immediate_gen;
         check(enc_u(20'h12345,7'b0010111),32'h12345000);
         check(enc_j(21'd2048),32'h00000800);
         check(enc_j(21'h1ffffc),32'hfffffffc);
+        // Them 13 vector bien (Phase 0, buoc 6): tong 25 check directed.
+        check(enc_i(12'h000,7'b0010011),32'h00000000); // I = 0
+        check(enc_i(12'h001,7'b0010011),32'h00000001); // I = +1
+        check(enc_s(12'h000),32'h00000000);           // S = 0
+        check(enc_s(12'h800),32'hfffff800);           // S = -2048
+        check(enc_b(13'd2),32'h00000002);             // B = +2
+        check(enc_b(13'h1ffe),32'hfffffffe);          // B = -2
+        check(enc_b(13'd4094),32'h00000ffe);          // B = +4094 (lon nhat, chan)
+        check(enc_b(13'h1000),32'hfffff000);          // B = -4096
+        check(enc_u(20'h80000,7'b0110111),32'h80000000); // U = 0x80000
+        check(enc_u(20'hfffff,7'b0010111),32'hfffff000); // U = 0xfffff
+        check(enc_j(21'd0),32'h00000000);             // J = 0
+        check(enc_j(21'd4),32'h00000004);             // J = +4
+        check(32'h00000033,32'h00000000);             // R-type: khong co immediate
+        // Random round-trip: 100 I-type + 100 S-type, seed co dinh.
+        seed = 32'h2468ace0;
+        for (i = 0; i < 100; i = i + 1) begin
+            rimm = $random(seed);
+            check_quiet(enc_i(rimm,7'b0010011), {{20{rimm[11]}}, rimm});
+        end
+        for (i = 0; i < 100; i = i + 1) begin
+            rimm = $random(seed);
+            check_quiet(enc_s(rimm), {{20{rimm[11]}}, rimm});
+        end
+        $display("  Random done: 200 vectors, see FAIL lines above if any");
         if (errors==0) $display("tb_immediate_gen: PASS (%0d checks)",tests);
         else $display("tb_immediate_gen: FAIL (%0d/%0d errors)",errors,tests);
         $finish;

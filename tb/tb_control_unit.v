@@ -86,6 +86,21 @@ module tb_control_unit;
         check(7'b1100011,3'b100,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // BLT
         check(7'b1100111,3'b001,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // bad JALR funct3
         check(7'b1111111,3'b000,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // unknown opcode
+        // Them 12 truong hop illegal (Phase 0, buoc 6): tong 40 check.
+        // Luu y: JAL, LUI, AUIPC khong kiem tra funct3 trong RTL,
+        // nen funct3 khac 0 o cac lenh do VAN hop le, khong dua vao day.
+        check(7'b0110011,3'b011,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // SLTU
+        check(7'b0110011,3'b001,7'b0100000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // SLL, funct7 sai
+        check(7'b0110011,3'b101,7'b0000001,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // SRA, funct7 sai
+        check(7'b0010011,3'b010,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // SLTI
+        check(7'b0010011,3'b101,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // SRLI
+        check(7'b0000011,3'b001,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // LH
+        check(7'b0000011,3'b100,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // LHU
+        check(7'b0100011,3'b000,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // SB
+        check(7'b1100011,3'b101,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // BGE
+        check(7'b1100011,3'b110,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // BLTU
+        check(7'b1100011,3'b111,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // BGEU
+        check(7'b1100111,3'b010,7'b0000000,expected(1,0,0,0,0,0,0,0,0,0,0,4'b0000)); // JALR, funct3 sai
 
         if (errors==0) $display("tb_control_unit: PASS (%0d checks)",tests);
         else $display("tb_control_unit: FAIL (%0d/%0d errors)",errors,tests);
