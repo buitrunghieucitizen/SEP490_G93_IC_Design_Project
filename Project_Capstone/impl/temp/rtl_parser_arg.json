@@ -107,7 +107,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/impl/temp/rtl_parser.result",
- "Top" : "board_top",
+ "Top" : "uart_cpu_mmio_v2_top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }
