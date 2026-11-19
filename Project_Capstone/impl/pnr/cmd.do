@@ -1,9 +1,9 @@
--d D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\impl\gwsynthesis\Project_Capstone.vg
+-d D:\SEP490_IC_Design\Project\SEP490_G93_IC_Design_Project\Project_Capstone\impl\gwsynthesis\Project_Capstone.vg
 -p GW5A-25A-UBGA324-2
 -pn GW5A-LV25UG324C2/I1
--cst D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\Project_Capstone.cst
--cfg D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\impl\pnr\device.cfg
--sdc D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\FPGA_DOAN.sdc
+-cst D:\SEP490_IC_Design\Project\SEP490_G93_IC_Design_Project\Project_Capstone\src\Project_Capstone.cst
+-cfg D:\SEP490_IC_Design\Project\SEP490_G93_IC_Design_Project\Project_Capstone\impl\pnr\device.cfg
+-sdc D:\SEP490_IC_Design\Project\SEP490_G93_IC_Design_Project\Project_Capstone\src\FPGA_DOAN.sdc
 -bit
 -tr
 -ph

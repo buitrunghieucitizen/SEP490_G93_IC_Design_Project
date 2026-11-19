@@ -1,81 +1,81 @@
 [
  {
-  "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+  "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
   "InstLine" : 4,
   "InstName" : "board_top",
-  "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+  "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
   "ModuleLine" : 4,
   "ModuleName" : "board_top",
   "SubInsts" : [
    {
-    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
     "InstLine" : 18,
     "InstName" : "u_cpu",
-    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_top.v",
     "ModuleLine" : 2,
     "ModuleName" : "cpu_top",
     "SubInsts" : [
      {
-      "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v",
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_top.v",
       "InstLine" : 24,
       "InstName" : "u_ctrl",
-      "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/control_unit.v",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/control_unit.v",
       "ModuleLine" : 2,
       "ModuleName" : "control_unit"
      },
      {
-      "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v",
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_top.v",
       "InstLine" : 32,
       "InstName" : "u_datapath",
-      "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
       "ModuleLine" : 2,
       "ModuleName" : "datapath",
       "SubInsts" : [
        {
-        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
         "InstLine" : 55,
         "InstName" : "u_pc",
-        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/pc.v",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/pc.v",
         "ModuleLine" : 7,
         "ModuleName" : "pc"
        },
        {
-        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
         "InstLine" : 58,
         "InstName" : "u_inst_mem",
-        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/instruction_memory.v",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/instruction_memory.v",
         "ModuleLine" : 2,
         "ModuleName" : "instruction_memory"
        },
        {
-        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
         "InstLine" : 70,
         "InstName" : "u_imm_gen",
-        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/immediate_gen.v",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/immediate_gen.v",
         "ModuleLine" : 15,
         "ModuleName" : "immediate_gen"
        },
        {
-        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
         "InstLine" : 71,
         "InstName" : "u_reg_file",
-        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/register_file.v",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/register_file.v",
         "ModuleLine" : 10,
         "ModuleName" : "register_file"
        },
        {
-        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
         "InstLine" : 79,
         "InstName" : "u_alu",
-        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/alu.v",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/alu.v",
         "ModuleLine" : 4,
         "ModuleName" : "alu"
        },
        {
-        "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v",
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
         "InstLine" : 81,
         "InstName" : "u_data_mem",
-        "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/data_memory.v",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/data_memory.v",
         "ModuleLine" : 2,
         "ModuleName" : "data_memory"
        }
@@ -84,37 +84,189 @@
     ]
    },
    {
-    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
     "InstLine" : 26,
     "InstName" : "u_probe",
-    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_wb_probe.v",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_wb_probe.v",
     "ModuleLine" : 4,
     "ModuleName" : "cpu_wb_probe"
    },
    {
-    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
     "InstLine" : 33,
     "InstName" : "u_capture",
-    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/result_capture.v",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/result_capture.v",
     "ModuleLine" : 4,
     "ModuleName" : "result_capture"
    },
    {
-    "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
-    "InstLine" : 41,
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
+    "InstLine" : 43,
+    "InstName" : "u_bcd",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/binary_to_bcd.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "binary_to_bcd"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
+    "InstLine" : 48,
     "InstName" : "u_display",
-    "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v",
-    "ModuleLine" : 47,
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/board_top.v",
+    "ModuleLine" : 58,
     "ModuleName" : "led7_display"
    }
   ]
  },
  {
-  "InstFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/led7_test_top.v",
+  "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/led7_test_top.v",
   "InstLine" : 6,
   "InstName" : "led7_test_top",
-  "ModuleFile" : "D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/led7_test_top.v",
+  "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/led7_test_top.v",
   "ModuleLine" : 6,
   "ModuleName" : "led7_test_top"
+ },
+ {
+  "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+  "InstLine" : 13,
+  "InstName" : "uart_cpu_mmio_v2_top",
+  "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+  "ModuleLine" : 13,
+  "ModuleName" : "uart_cpu_mmio_v2_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+    "InstLine" : 56,
+    "InstName" : "u_rx",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_rx.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "uart_rx"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+    "InstLine" : 60,
+    "InstName" : "u_parser",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_command_parser_v2.v",
+    "ModuleLine" : 7,
+    "ModuleName" : "uart_command_parser_v2"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+    "InstLine" : 67,
+    "InstName" : "u_mailbox",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_command_ready.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "uart_command_ready"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+    "InstLine" : 72,
+    "InstName" : "u_cpu",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_mmio_v2_top.v",
+    "ModuleLine" : 3,
+    "ModuleName" : "cpu_mmio_v2_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_mmio_v2_top.v",
+      "InstLine" : 31,
+      "InstName" : "u_ctrl",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/control_unit.v",
+      "ModuleLine" : 2,
+      "ModuleName" : "control_unit"
+     },
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_mmio_v2_top.v",
+      "InstLine" : 38,
+      "InstName" : "u_datapath",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
+      "ModuleLine" : 3,
+      "ModuleName" : "datapath_mmio_v2",
+      "SubInsts" : [
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
+        "InstLine" : 57,
+        "InstName" : "u_pc",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/pc.v",
+        "ModuleLine" : 7,
+        "ModuleName" : "pc"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
+        "InstLine" : 59,
+        "InstName" : "u_inst_mem",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/instruction_memory.v",
+        "ModuleLine" : 2,
+        "ModuleName" : "instruction_memory"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
+        "InstLine" : 69,
+        "InstName" : "u_imm_gen",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/immediate_gen.v",
+        "ModuleLine" : 15,
+        "ModuleName" : "immediate_gen"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
+        "InstLine" : 70,
+        "InstName" : "u_reg_file",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/register_file.v",
+        "ModuleLine" : 10,
+        "ModuleName" : "register_file"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
+        "InstLine" : 77,
+        "InstName" : "u_alu",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/alu.v",
+        "ModuleLine" : 4,
+        "ModuleName" : "alu"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
+        "InstLine" : 78,
+        "InstName" : "u_dmem",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/data_memory_mmio_v2.v",
+        "ModuleLine" : 9,
+        "ModuleName" : "data_memory_mmio_v2"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+    "InstLine" : 88,
+    "InstName" : "u_signed_bcd",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/signed_result_to_bcd8.v",
+    "ModuleLine" : 14,
+    "ModuleName" : "signed_result_to_bcd8"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+    "InstLine" : 97,
+    "InstName" : "u_result_tx",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_result_tx.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "uart_result_tx",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_result_tx.v",
+      "InstLine" : 103,
+      "InstName" : "u_serial",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_tx.v",
+      "ModuleLine" : 2,
+      "ModuleName" : "uart_tx"
+     }
+    ]
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v",
+    "InstLine" : 112,
+    "InstName" : "u_led",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/led7_scan_signed_595.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "led7_scan_signed_595"
+   }
+  ]
  }
 ]

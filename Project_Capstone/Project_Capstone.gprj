@@ -6,20 +6,33 @@
     <Device name="GW5A-25A" pn="GW5A-LV25UG324C2/I1">gw5a25a-008</Device>
     <FileList>
         <File path="src/alu.v" type="file.verilog" enable="1"/>
+        <File path="src/binary_to_bcd.v" type="file.verilog" enable="1"/>
         <File path="src/board_top.v" type="file.verilog" enable="1"/>
         <File path="src/control_unit.v" type="file.verilog" enable="1"/>
+        <File path="src/cpu_mmio_v2_top.v" type="file.verilog" enable="1"/>
         <File path="src/cpu_top.v" type="file.verilog" enable="1"/>
         <File path="src/cpu_wb_probe.v" type="file.verilog" enable="1"/>
         <File path="src/data_memory.v" type="file.verilog" enable="1"/>
+        <File path="src/data_memory_mmio_v2.v" type="file.verilog" enable="1"/>
         <File path="src/datapath.v" type="file.verilog" enable="1"/>
+        <File path="src/datapath_mmio_v2.v" type="file.verilog" enable="1"/>
         <File path="src/immediate_gen.v" type="file.verilog" enable="1"/>
         <File path="src/instruction_memory.v" type="file.verilog" enable="1"/>
+        <File path="src/led7_scan_signed_595.v" type="file.verilog" enable="1"/>
         <File path="src/led7_test_top.v" type="file.verilog" enable="1"/>
         <File path="src/pc.v" type="file.verilog" enable="1"/>
         <File path="src/register_file.v" type="file.verilog" enable="1"/>
         <File path="src/result_capture.v" type="file.verilog" enable="1"/>
+        <File path="src/signed_result_to_bcd8.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_command_parser_v2.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_command_ready.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_cpu_mmio_v2_top.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_result_tx.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_tx.v" type="file.verilog" enable="1"/>
         <File path="src/Project_Capstone.cst" type="file.cst" enable="1"/>
         <File path="src/FPGA_DOAN.sdc" type="file.sdc" enable="1"/>
         <File path="src/program.mem" type="file.other" enable="1"/>
+        <File path="src/program_multi_mmio.mem" type="file.other" enable="1"/>
     </FileList>
 </Project>

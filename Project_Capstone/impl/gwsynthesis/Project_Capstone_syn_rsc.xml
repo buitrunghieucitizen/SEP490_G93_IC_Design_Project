@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="board_top" Lut="1" T_Register="4402(0)" T_Alu="64(0)" T_Lut="3015(1)">
- <SubModule name="u_cpu" T_Register="4324(0)" T_Alu="64(0)" T_Lut="2918(0)">
-  <SubModule name="u_ctrl" Lut="3" T_Lut="3(3)"/>
-  <SubModule name="u_datapath" Register="4" Alu="32" Lut="269" T_Register="4324(4)" T_Alu="64(32)" T_Lut="2915(269)">
-   <SubModule name="u_pc" Register="32" Lut="3" T_Register="32(32)" T_Lut="3(3)"/>
-   <SubModule name="u_inst_mem" Lut="7" T_Lut="7(7)"/>
-   <SubModule name="u_imm_gen" Lut="12" T_Lut="12(12)"/>
-   <SubModule name="u_reg_file" Register="192" Lut="423" T_Register="192(192)" T_Lut="423(423)"/>
-   <SubModule name="u_alu" Alu="32" T_Alu="32(32)"/>
-   <SubModule name="u_data_mem" Register="4096" Lut="2201" T_Register="4096(4096)" T_Lut="2201(2201)"/>
+<Module name="uart_cpu_mmio_v2_top" Register="21" Alu="19" Lut="12" T_Register="6085(21)" T_Alu="237(19)" T_Lut="5547(12)" T_Bsram="1(0)">
+ <SubModule name="u_rx" Register="40" Lut="55" T_Register="40(40)" T_Lut="55(55)"/>
+ <SubModule name="u_parser" Register="73" Alu="48" Lut="166" T_Register="73(73)" T_Alu="48(48)" T_Lut="166(166)"/>
+ <SubModule name="u_mailbox" Register="1" Lut="1" T_Register="1(1)" T_Lut="1(1)"/>
+ <SubModule name="u_cpu" T_Register="5162(0)" T_Alu="160(0)" T_Lut="4512(0)" T_Bsram="1(0)">
+  <SubModule name="u_ctrl" Lut="16" T_Lut="16(16)"/>
+  <SubModule name="u_datapath" Register="1" Alu="128" Lut="815" T_Register="5162(1)" T_Alu="160(128)" T_Lut="4496(815)" T_Bsram="1(0)">
+   <SubModule name="u_pc" Register="40" Lut="23" T_Register="40(40)" T_Lut="23(23)"/>
+   <SubModule name="u_inst_mem" Lut="10" Bsram="1" T_Lut="10(10)" T_Bsram="1(1)"/>
+   <SubModule name="u_imm_gen" Lut="53" T_Lut="53(53)"/>
+   <SubModule name="u_reg_file" Register="992" Lut="1142" T_Register="992(992)" T_Lut="1142(1142)"/>
+   <SubModule name="u_alu" Alu="32" Lut="230" T_Alu="32(32)" T_Lut="230(230)"/>
+   <SubModule name="u_dmem" Register="4129" Lut="2223" T_Register="4129(4129)" T_Lut="2223(2223)"/>
   </SubModule>
  </SubModule>
- <SubModule name="u_capture" Register="32" Lut="2" T_Register="32(32)" T_Lut="2(2)"/>
- <SubModule name="u_display" Register="46" Lut="94" T_Register="46(46)" T_Lut="94(94)"/>
+ <SubModule name="u_signed_bcd" Register="105" Lut="194" T_Register="105(105)" T_Lut="194(194)"/>
+ <SubModule name="u_result_tx" Register="607" Alu="10" Lut="465" T_Register="637(607)" T_Alu="10(10)" T_Lut="516(465)">
+  <SubModule name="u_serial" Register="30" Lut="51" T_Register="30(30)" T_Lut="51(51)"/>
+ </SubModule>
+ <SubModule name="u_led" Register="46" Lut="91" T_Register="46(46)" T_Lut="91(91)"/>
 </Module>

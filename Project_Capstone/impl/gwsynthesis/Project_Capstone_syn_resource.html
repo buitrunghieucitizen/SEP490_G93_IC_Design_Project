@@ -30,8 +30,38 @@ table td.label { width: 20%; white-space: nowrap; min-width: 20px; background-co
 <th class="label">ROM16 NUMBER</th>
 </tr>
 <tr>
-<td class="label">board_top (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v)</td>
+<td class="label">uart_cpu_mmio_v2_top (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
+<td align = "center">21</td>
+<td align = "center">19</td>
+<td align = "center">12</td>
 <td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+</tr>
+<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_rx
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
+<td align = "center">40</td>
+<td align = "center">-</td>
+<td align = "center">55</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+</tr>
+<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_parser
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
+<td align = "center">73</td>
+<td align = "center">48</td>
+<td align = "center">166</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+</tr>
+<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_mailbox
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
+<td align = "center">1</td>
 <td align = "center">-</td>
 <td align = "center">1</td>
 <td align = "center">-</td>
@@ -40,7 +70,7 @@ table td.label { width: 20%; white-space: nowrap; min-width: 20px; background-co
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp|--u_cpu
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v)</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
@@ -50,100 +80,120 @@ table td.label { width: 20%; white-space: nowrap; min-width: 20px; background-co
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_ctrl
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v)</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_mmio_v2_top.v)</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
-<td align = "center">3</td>
+<td align = "center">16</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_datapath
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/cpu_top.v)</td>
-<td align = "center">4</td>
-<td align = "center">32</td>
-<td align = "center">269</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_mmio_v2_top.v)</td>
+<td align = "center">1</td>
+<td align = "center">128</td>
+<td align = "center">815</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_pc
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v)</td>
-<td align = "center">32</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v)</td>
+<td align = "center">40</td>
 <td align = "center">-</td>
-<td align = "center">3</td>
+<td align = "center">23</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_inst_mem
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v)</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v)</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
-<td align = "center">7</td>
+<td align = "center">10</td>
 <td align = "center">-</td>
-<td align = "center">-</td>
+<td align = "center">1</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_imm_gen
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v)</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v)</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
-<td align = "center">12</td>
+<td align = "center">53</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_reg_file
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v)</td>
-<td align = "center">192</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v)</td>
+<td align = "center">992</td>
 <td align = "center">-</td>
-<td align = "center">423</td>
+<td align = "center">1142</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
 <td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_alu
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v)</td>
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v)</td>
 <td align = "center">-</td>
 <td align = "center">32</td>
-<td align = "center">-</td>
-<td align = "center">-</td>
-<td align = "center">-</td>
-<td align = "center">-</td>
-<td align = "center">-</td>
-</tr>
-<td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_data_mem
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/datapath.v)</td>
-<td align = "center">4096</td>
-<td align = "center">-</td>
-<td align = "center">2201</td>
+<td align = "center">230</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
-<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_capture
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v)</td>
-<td align = "center">32</td>
+<td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_dmem
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v)</td>
+<td align = "center">4129</td>
 <td align = "center">-</td>
-<td align = "center">2</td>
+<td align = "center">2223</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 </tr>
-<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_display
- (D:/SEP490_IC_Design/Gowin_Project/Project_Capstone/src/board_top.v)</td>
+<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_signed_bcd
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
+<td align = "center">105</td>
+<td align = "center">-</td>
+<td align = "center">194</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+</tr>
+<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_result_tx
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
+<td align = "center">607</td>
+<td align = "center">10</td>
+<td align = "center">465</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+</tr>
+<td class="label">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|--u_serial
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_result_tx.v)</td>
+<td align = "center">30</td>
+<td align = "center">-</td>
+<td align = "center">51</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+<td align = "center">-</td>
+</tr>
+<td class="label">&nbsp&nbsp&nbsp&nbsp|--u_led
+ (D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_mmio_v2_top.v)</td>
 <td align = "center">46</td>
 <td align = "center">-</td>
-<td align = "center">94</td>
+<td align = "center">91</td>
 <td align = "center">-</td>
 <td align = "center">-</td>
 <td align = "center">-</td>

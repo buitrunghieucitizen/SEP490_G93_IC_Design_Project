@@ -61,15 +61,15 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Design File</td>
-<td>D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\impl\gwsynthesis\Project_Capstone.vg</td>
+<td>D:\SEP490_IC_Design\Project\SEP490_G93_IC_Design_Project\Project_Capstone\impl\gwsynthesis\Project_Capstone.vg</td>
 </tr>
 <tr>
 <td class="label">Physical Constraints File</td>
-<td>D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\Project_Capstone.cst</td>
+<td>D:\SEP490_IC_Design\Project\SEP490_G93_IC_Design_Project\Project_Capstone\src\Project_Capstone.cst</td>
 </tr>
 <tr>
 <td class="label">Timing Constraints File</td>
-<td>D:\SEP490_IC_Design\Gowin_Project\Project_Capstone\src\FPGA_DOAN.sdc</td>
+<td>D:\SEP490_IC_Design\Project\SEP490_G93_IC_Design_Project\Project_Capstone\src\FPGA_DOAN.sdc</td>
 </tr>
 <tr>
 <td class="label">Tool Version</td>
@@ -89,7 +89,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Tue Oct 27 22:08:31 2026
+<td>Thu Nov 19 11:27:49 2026
 </td>
 </tr>
 <tr>
@@ -161,22 +161,22 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <table class="summary_table">
 <tr>
 <td class="label">Total Power (mW)</td>
-<td>55.528</td>
+<td>56.807</td>
 </tr>
 <tr>
 <td class="label">Quiescent Power (mW)</td>
-<td>53.478</td>
+<td>53.475</td>
 </tr>
 <tr>
 <td class="label">Dynamic Power (mW)</td>
-<td>2.050</td>
+<td>3.332</td>
 </tr>
 </table>
 <h2><a name="Thermal_Info">Thermal Information:</a></h2>
 <table class="summary_table">
 <tr>
 <td class="label">Junction Temperature</td>
-<td>26.521</td>
+<td>26.557</td>
 </tr>
 <tr>
 <td class="label">Theta JA</td>
@@ -184,7 +184,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Max Allowed Ambient Temperature</td>
-<td>83.479</td>
+<td>83.443</td>
 </tr>
 </table>
 <h2><a name="Supply_Summary">Supply Information:</a></h2>
@@ -199,23 +199,23 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>VCC</td>
 <td>0.900</td>
-<td>1.290</td>
+<td>2.502</td>
 <td>30.002</td>
-<td>28.163</td>
+<td>29.254</td>
 </tr>
 <tr>
 <td>VCCX</td>
 <td>3.300</td>
-<td>0.135</td>
+<td>0.164</td>
 <td>3.000</td>
-<td>10.344</td>
+<td>10.440</td>
 </tr>
 <tr>
 <td>VCCIO33</td>
 <td>3.300</td>
-<td>0.135</td>
-<td>1.023</td>
-<td>3.821</td>
+<td>0.164</td>
+<td>1.022</td>
+<td>3.913</td>
 </tr>
 <tr>
 <td>VCC_LDO</td>
@@ -236,15 +236,21 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>Logic</td>
-<td>1.042</td>
+<td>1.845</td>
 <td>NA</td>
 <td>6.250</td>
 </tr>
 <tr>
 <td>IO</td>
-<td>5.099
-<td>4.091
-<td>15.000
+<td>5.568
+<td>4.342
+<td>12.500
+</tr>
+<tr>
+<td>BSRAM</td>
+<td>0.261
+<td>NA</td>
+<td>NA</td>
 </tr>
 </table>
 <h2><a name="By_Hierarchy">Power By Hierarchy:</a></h2>
@@ -255,53 +261,73 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <th class="label">Block Dynamic Power(mW)</th>
 </tr>
 <tr>
-<td>board_top</td>
-<td>1.042</td>
-<td>1.042(1.042)</td>
+<td>uart_cpu_mmio_v2_top</td>
+<td>2.106</td>
+<td>2.106(2.076)</td>
 <tr>
-<td>board_top/u_capture/</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/</td>
+<td>1.731</td>
+<td>1.731(1.731)</td>
+<tr>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_ctrl/</td>
 <td>0.003</td>
 <td>0.003(0.000)</td>
 <tr>
-<td>board_top/u_cpu/</td>
-<td>1.018</td>
-<td>1.018(1.018)</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_datapath/</td>
+<td>1.728</td>
+<td>1.728(1.449)</td>
 <tr>
-<td>board_top/u_cpu/u_ctrl/</td>
-<td>0.001</td>
-<td>0.001(0.000)</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_datapath/u_alu/</td>
+<td>0.086</td>
+<td>0.086(0.000)</td>
 <tr>
-<td>board_top/u_cpu/u_datapath/</td>
-<td>1.017</td>
-<td>1.017(0.924)</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_datapath/u_dmem/</td>
+<td>0.786</td>
+<td>0.786(0.000)</td>
 <tr>
-<td>board_top/u_cpu/u_datapath/u_alu/</td>
-<td>0.045</td>
-<td>0.045(0.000)</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_datapath/u_imm_gen/</td>
+<td>0.009</td>
+<td>0.009(0.000)</td>
 <tr>
-<td>board_top/u_cpu/u_datapath/u_data_mem/</td>
-<td>0.779</td>
-<td>0.779(0.000)</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_datapath/u_inst_mem/</td>
+<td>0.263</td>
+<td>0.263(0.000)</td>
 <tr>
-<td>board_top/u_cpu/u_datapath/u_imm_gen/</td>
-<td>0.002</td>
-<td>0.002(0.000)</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_datapath/u_pc/</td>
+<td>0.008</td>
+<td>0.008(0.000)</td>
 <tr>
-<td>board_top/u_cpu/u_datapath/u_inst_mem/</td>
-<td>0.001</td>
-<td>0.001(0.000)</td>
+<td>uart_cpu_mmio_v2_top/u_cpu/u_datapath/u_reg_file/</td>
+<td>0.297</td>
+<td>0.297(0.000)</td>
 <tr>
-<td>board_top/u_cpu/u_datapath/u_pc/</td>
-<td>0.004</td>
-<td>0.004(0.000)</td>
-<tr>
-<td>board_top/u_cpu/u_datapath/u_reg_file/</td>
-<td>0.093</td>
-<td>0.093(0.000)</td>
-<tr>
-<td>board_top/u_display/</td>
+<td>uart_cpu_mmio_v2_top/u_led/</td>
 <td>0.021</td>
 <td>0.021(0.000)</td>
+<tr>
+<td>uart_cpu_mmio_v2_top/u_mailbox/</td>
+<td>0.000</td>
+<td>0.000(0.000)</td>
+<tr>
+<td>uart_cpu_mmio_v2_top/u_parser/</td>
+<td>0.102</td>
+<td>0.102(0.000)</td>
+<tr>
+<td>uart_cpu_mmio_v2_top/u_result_tx/</td>
+<td>0.165</td>
+<td>0.165(0.012)</td>
+<tr>
+<td>uart_cpu_mmio_v2_top/u_result_tx/u_serial/</td>
+<td>0.012</td>
+<td>0.012(0.000)</td>
+<tr>
+<td>uart_cpu_mmio_v2_top/u_rx/</td>
+<td>0.014</td>
+<td>0.014(0.000)</td>
+<tr>
+<td>uart_cpu_mmio_v2_top/u_signed_bcd/</td>
+<td>0.044</td>
+<td>0.044(0.000)</td>
 </table>
 <h2><a name="By_Clock_Domain">Power By Clock Domain:</a></h2>
 <table class="detail_table">
@@ -313,7 +339,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td>clk</td>
 <td>50.000</td>
-<td>1.042</td>
+<td>2.106</td>
 </tr>
 </table>
 </div><!-- content -->

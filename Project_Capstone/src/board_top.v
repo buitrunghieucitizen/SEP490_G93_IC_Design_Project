@@ -38,10 +38,21 @@ module board_top (
 
     // This is the same 74HC595 scan scheme used by led7_test_top,
     // with the fixed test pattern replaced by display_data.
-    led7_display u_display (
-        .clk(clk), .reset_n(reset_n), .value(display_data),
-        .ds(ds), .sh_cp(sh_cp), .st_cp(st_cp)
-    );
+wire [31:0] decimal_bcd;
+
+binary_to_bcd u_bcd (
+    .binary(display_data),
+    .bcd(decimal_bcd)
+);
+
+led7_display u_display (
+    .clk(clk),
+    .reset_n(reset_n),
+    .value(decimal_bcd),
+    .ds(ds),
+    .sh_cp(sh_cp),
+    .st_cp(st_cp)
+);
 endmodule
 
 module led7_display (

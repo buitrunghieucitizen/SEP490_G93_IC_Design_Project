@@ -1,0 +1,201 @@
+
+/tmp/v2_independent.elf:	file format elf32-littleriscv
+
+Disassembly of section .text:
+
+00000000 <entry>:
+       0: 00001e37     	lui	t3, 0x1
+
+00000004 <poll>:
+       4: 00ce2283     	lw	t0, 0xc(t3)
+       8: fe028ee3     	beqz	t0, 0x4 <poll>
+       c: 008e2303     	lw	t1, 0x8(t3)
+      10: 000e2383     	lw	t2, 0x0(t3)
+      14: 004e2403     	lw	s0, 0x4(t3)
+      18: 00100493     	li	s1, 0x1
+      1c: 02930a63     	beq	t1, s1, 0x50 <do_add>
+      20: 00200493     	li	s1, 0x2
+      24: 02930a63     	beq	t1, s1, 0x58 <do_sub>
+      28: 00300493     	li	s1, 0x3
+      2c: 02930a63     	beq	t1, s1, 0x60 <do_mul>
+      30: 00400493     	li	s1, 0x4
+      34: 04930c63     	beq	t1, s1, 0x8c <do_sum>
+      38: 00500493     	li	s1, 0x5
+      3c: 06930463     	beq	t1, s1, 0xa4 <do_fib>
+      40: 00600493     	li	s1, 0x6
+      44: 08930463     	beq	t1, s1, 0xcc <do_test20>
+      48: f9d00d13     	li	s10, -0x63
+      4c: 0880006f     	j	0xd4 <publish>
+
+00000050 <do_add>:
+      50: 00838d33     	add	s10, t2, s0
+      54: 0800006f     	j	0xd4 <publish>
+
+00000058 <do_sub>:
+      58: 40838d33     	sub	s10, t2, s0
+      5c: 0780006f     	j	0xd4 <publish>
+
+00000060 <do_mul>:
+      60: 00000d13     	li	s10, 0x0
+      64: 00038533     	add	a0, t2, zero
+      68: 000405b3     	add	a1, s0, zero
+      6c: 00100493     	li	s1, 0x1
+
+00000070 <mul_loop>:
+      70: 06058263     	beqz	a1, 0xd4 <publish>
+      74: 0015f613     	andi	a2, a1, 0x1
+      78: 00060463     	beqz	a2, 0x80 <mul_skip>
+      7c: 00ad0d33     	add	s10, s10, a0
+
+00000080 <mul_skip>:
+      80: 00951533     	sll	a0, a0, s1
+      84: 0095d5b3     	srl	a1, a1, s1
+      88: fe9ff06f     	j	0x70 <mul_loop>
+
+0000008c <do_sum>:
+      8c: 00000d13     	li	s10, 0x0
+      90: 00038533     	add	a0, t2, zero
+
+00000094 <sum_loop>:
+      94: 04050063     	beqz	a0, 0xd4 <publish>
+      98: 00ad0d33     	add	s10, s10, a0
+      9c: fff50513     	addi	a0, a0, -0x1
+      a0: ff5ff06f     	j	0x94 <sum_loop>
+
+000000a4 <do_fib>:
+      a4: 00000513     	li	a0, 0x0
+      a8: 00100593     	li	a1, 0x1
+
+000000ac <fib_loop>:
+      ac: 00038c63     	beqz	t2, 0xc4 <fib_done>
+      b0: 00b50633     	add	a2, a0, a1
+      b4: 00058533     	add	a0, a1, zero
+      b8: 000605b3     	add	a1, a2, zero
+      bc: fff38393     	addi	t2, t2, -0x1
+      c0: fedff06f     	j	0xac <fib_loop>
+
+000000c4 <fib_done>:
+      c4: 00050d33     	add	s10, a0, zero
+      c8: 00c0006f     	j	0xd4 <publish>
+
+000000cc <do_test20>:
+      cc: 01000eef     	jal	t4, 0xdc <test20>
+      d0: 0040006f     	j	0xd4 <publish>
+
+000000d4 <publish>:
+      d4: 01ae2823     	sw	s10, 0x10(t3)
+      d8: f2dff06f     	j	0x4 <poll>
+
+000000dc <test20>:
+      dc: 00001e37     	lui	t3, 0x1
+      e0: 00500093     	li	ra, 0x5
+      e4: 00300113     	li	sp, 0x3
+      e8: fff00d93     	li	s11, -0x1
+      ec: 002081b3     	add	gp, ra, sp
+      f0: 00800213     	li	tp, 0x8
+      f4: 16419863     	bne	gp, tp, 0x264 <t20_fail>
+      f8: ffe00d93     	li	s11, -0x2
+      fc: 402081b3     	sub	gp, ra, sp
+     100: 00200213     	li	tp, 0x2
+     104: 16419063     	bne	gp, tp, 0x264 <t20_fail>
+     108: ffd00d93     	li	s11, -0x3
+     10c: 0020f1b3     	and	gp, ra, sp
+     110: 00100213     	li	tp, 0x1
+     114: 14419863     	bne	gp, tp, 0x264 <t20_fail>
+     118: ffc00d93     	li	s11, -0x4
+     11c: 0020e1b3     	or	gp, ra, sp
+     120: 00700213     	li	tp, 0x7
+     124: 14419063     	bne	gp, tp, 0x264 <t20_fail>
+     128: ffb00d93     	li	s11, -0x5
+     12c: 0020c1b3     	xor	gp, ra, sp
+     130: 00600213     	li	tp, 0x6
+     134: 12419863     	bne	gp, tp, 0x264 <t20_fail>
+     138: ffa00d93     	li	s11, -0x6
+     13c: 002091b3     	sll	gp, ra, sp
+     140: 02800213     	li	tp, 0x28
+     144: 12419063     	bne	gp, tp, 0x264 <t20_fail>
+     148: ff900d93     	li	s11, -0x7
+     14c: 80000437     	lui	s0, 0x80000
+     150: 002451b3     	srl	gp, s0, sp
+     154: 10000237     	lui	tp, 0x10000
+     158: 10419663     	bne	gp, tp, 0x264 <t20_fail>
+     15c: ff800d93     	li	s11, -0x8
+     160: 402451b3     	sra	gp, s0, sp
+     164: f0000237     	lui	tp, 0xf0000
+     168: 0e419e63     	bne	gp, tp, 0x264 <t20_fail>
+     16c: ff700d93     	li	s11, -0x9
+     170: ffe08193     	addi	gp, ra, -0x2
+     174: 00300213     	li	tp, 0x3
+     178: 0e419663     	bne	gp, tp, 0x264 <t20_fail>
+     17c: ff600d93     	li	s11, -0xa
+     180: 0030f193     	andi	gp, ra, 0x3
+     184: 00100213     	li	tp, 0x1
+     188: 0c419e63     	bne	gp, tp, 0x264 <t20_fail>
+     18c: ff500d93     	li	s11, -0xb
+     190: 0080e193     	ori	gp, ra, 0x8
+     194: 00d00213     	li	tp, 0xd
+     198: 0c419663     	bne	gp, tp, 0x264 <t20_fail>
+     19c: ff400d93     	li	s11, -0xc
+     1a0: 0030c193     	xori	gp, ra, 0x3
+     1a4: 00600213     	li	tp, 0x6
+     1a8: 0a419e63     	bne	gp, tp, 0x264 <t20_fail>
+     1ac: ff300d93     	li	s11, -0xd
+     1b0: 002081b3     	add	gp, ra, sp
+     1b4: 00302023     	sw	gp, 0x0(zero)
+     1b8: 00002303     	lw	t1, 0x0(zero)
+     1bc: 00800213     	li	tp, 0x8
+     1c0: 0a431263     	bne	t1, tp, 0x264 <t20_fail>
+     1c4: ff200d93     	li	s11, -0xe
+     1c8: 402081b3     	sub	gp, ra, sp
+     1cc: 00302223     	sw	gp, 0x4(zero)
+     1d0: 00402383     	lw	t2, 0x4(zero)
+     1d4: 00200213     	li	tp, 0x2
+     1d8: 08439663     	bne	t2, tp, 0x264 <t20_fail>
+     1dc: ff100d93     	li	s11, -0xf
+     1e0: 00108463     	beq	ra, ra, 0x1e8 <beq_taken>
+     1e4: 0800006f     	j	0x264 <t20_fail>
+
+000001e8 <beq_taken>:
+     1e8: 06208e63     	beq	ra, sp, 0x264 <t20_fail>
+     1ec: ff000d93     	li	s11, -0x10
+     1f0: 00209463     	bne	ra, sp, 0x1f8 <bne_taken>
+     1f4: 0700006f     	j	0x264 <t20_fail>
+
+000001f8 <bne_taken>:
+     1f8: 06109663     	bne	ra, ra, 0x264 <t20_fail>
+     1fc: fef00d93     	li	s11, -0x11
+     200: 00000517     	auipc	a0, 0x0
+     204: 00800fef     	jal	t6, 0x20c <jal_target>
+     208: 05c0006f     	j	0x264 <t20_fail>
+
+0000020c <jal_target>:
+     20c: 00850213     	addi	tp, a0, 0x8
+     210: 044f9a63     	bne	t6, tp, 0x264 <t20_fail>
+     214: fee00d93     	li	s11, -0x12
+     218: 00000517     	auipc	a0, 0x0
+     21c: 01150513     	addi	a0, a0, 0x11
+     220: 00050fe7     	jalr	t6, a0
+     224: 0400006f     	j	0x264 <t20_fail>
+
+00000228 <jalr_target>:
+     228: ffb50213     	addi	tp, a0, -0x5
+     22c: 024f9c63     	bne	t6, tp, 0x264 <t20_fail>
+     230: fed00d93     	li	s11, -0x13
+     234: 000011b7     	lui	gp, 0x1
+     238: 00100213     	li	tp, 0x1
+     23c: 00c00613     	li	a2, 0xc
+     240: 00c21233     	sll	tp, tp, a2
+     244: 02419063     	bne	gp, tp, 0x264 <t20_fail>
+     248: fec00d93     	li	s11, -0x14
+     24c: 00000517     	auipc	a0, 0x0
+     250: 00000597     	auipc	a1, 0x0
+     254: 00450213     	addi	tp, a0, 0x4
+     258: 00459663     	bne	a1, tp, 0x264 <t20_fail>
+
+0000025c <t20_pass>:
+     25c: 01400d13     	li	s10, 0x14
+     260: 000e8067     	jr	t4
+
+00000264 <t20_fail>:
+     264: 000d8d33     	add	s10, s11, zero
+     268: 000e8067     	jr	t4
