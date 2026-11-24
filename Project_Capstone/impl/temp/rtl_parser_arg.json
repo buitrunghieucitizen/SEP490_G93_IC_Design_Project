@@ -18,6 +18,10 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_mmio_v2_top.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_top.v",
    "Type" : "verilog"
   },
@@ -30,7 +34,15 @@
    "Type" : "verilog"
   },
   {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/data_memory_mmio_v2.v",
+   "Type" : "verilog"
+  },
+  {
    "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
    "Type" : "verilog"
   },
   {
@@ -39,6 +51,10 @@
   },
   {
    "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/instruction_memory.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/led7_scan_signed_595.v",
    "Type" : "verilog"
   },
   {
@@ -55,22 +71,6 @@
   },
   {
    "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/result_capture.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_mmio_v2_top.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/data_memory_mmio_v2.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_mmio_v2.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/led7_scan_signed_595.v",
    "Type" : "verilog"
   },
   {
