@@ -78,7 +78,7 @@
  "Show_All_Warnings" : false,
  "Synthesize_tool" : "GowinSyn",
  "TclPre" : "",
- "TopModule" : "uart_cpu_mmio_v2_top",
+ "TopModule" : "uart_cpu_isa20_interactive_top",
  "USERCODE" : "default",
  "Unused_Pin" : "As_input_tri_stated_with_pull_up",
  "VCC" : "0.9",

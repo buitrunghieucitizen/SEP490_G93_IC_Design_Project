@@ -9,15 +9,21 @@
         <File path="src/binary_to_bcd.v" type="file.verilog" enable="1"/>
         <File path="src/board_top.v" type="file.verilog" enable="1"/>
         <File path="src/control_unit.v" type="file.verilog" enable="1"/>
+        <File path="src/cpu_isa20_interactive.v" type="file.verilog" enable="1"/>
         <File path="src/cpu_mmio_v2_top.v" type="file.verilog" enable="1"/>
         <File path="src/cpu_top.v" type="file.verilog" enable="1"/>
         <File path="src/cpu_wb_probe.v" type="file.verilog" enable="1"/>
         <File path="src/data_memory.v" type="file.verilog" enable="1"/>
         <File path="src/data_memory_mmio_v2.v" type="file.verilog" enable="1"/>
         <File path="src/datapath.v" type="file.verilog" enable="1"/>
+        <File path="src/datapath_isa20_interactive.v" type="file.verilog" enable="1"/>
         <File path="src/datapath_mmio_v2.v" type="file.verilog" enable="1"/>
         <File path="src/immediate_gen.v" type="file.verilog" enable="1"/>
         <File path="src/instruction_memory.v" type="file.verilog" enable="1"/>
+        <File path="src/isa20_encoder.v" type="file.verilog" enable="1"/>
+        <File path="src/isa20_interactive_engine.v" type="file.verilog" enable="1"/>
+        <File path="src/isa20_interactive_parser.v" type="file.verilog" enable="1"/>
+        <File path="src/isa20_interactive_tx.v" type="file.verilog" enable="1"/>
         <File path="src/led7_scan_signed_595.v" type="file.verilog" enable="1"/>
         <File path="src/led7_test_top.v" type="file.verilog" enable="1"/>
         <File path="src/pc.v" type="file.verilog" enable="1"/>
@@ -26,6 +32,7 @@
         <File path="src/signed_result_to_bcd8.v" type="file.verilog" enable="1"/>
         <File path="src/uart_command_parser_v2.v" type="file.verilog" enable="1"/>
         <File path="src/uart_command_ready.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_cpu_isa20_interactive_top.v" type="file.verilog" enable="1"/>
         <File path="src/uart_cpu_mmio_v2_top.v" type="file.verilog" enable="1"/>
         <File path="src/uart_result_tx.v" type="file.verilog" enable="1"/>
         <File path="src/uart_rx.v" type="file.verilog" enable="1"/>

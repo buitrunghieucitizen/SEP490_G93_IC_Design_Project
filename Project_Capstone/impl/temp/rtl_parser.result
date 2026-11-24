@@ -268,5 +268,151 @@
     "ModuleName" : "led7_scan_signed_595"
    }
   ]
+ },
+ {
+  "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+  "InstLine" : 2,
+  "InstName" : "uart_cpu_isa20_interactive_top",
+  "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+  "ModuleLine" : 2,
+  "ModuleName" : "uart_cpu_isa20_interactive_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+    "InstLine" : 13,
+    "InstName" : "u_rx",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_rx.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "uart_rx"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+    "InstLine" : 18,
+    "InstName" : "u_parser",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_parser.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "isa20_interactive_parser"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+    "InstLine" : 19,
+    "InstName" : "u_engine",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_engine.v",
+    "ModuleLine" : 3,
+    "ModuleName" : "isa20_interactive_engine",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_engine.v",
+      "InstLine" : 17,
+      "InstName" : "enc",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_encoder.v",
+      "ModuleLine" : 2,
+      "ModuleName" : "isa20_encoder"
+     },
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_engine.v",
+      "InstLine" : 24,
+      "InstName" : "u_cpu",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_isa20_interactive.v",
+      "ModuleLine" : 3,
+      "ModuleName" : "cpu_isa20_interactive",
+      "SubInsts" : [
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_isa20_interactive.v",
+        "InstLine" : 35,
+        "InstName" : "u_ctrl",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/control_unit.v",
+        "ModuleLine" : 2,
+        "ModuleName" : "control_unit"
+       },
+       {
+        "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_isa20_interactive.v",
+        "InstLine" : 42,
+        "InstName" : "u_datapath",
+        "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_isa20_interactive.v",
+        "ModuleLine" : 3,
+        "ModuleName" : "datapath_isa20_interactive",
+        "SubInsts" : [
+         {
+          "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_isa20_interactive.v",
+          "InstLine" : 91,
+          "InstName" : "u_inst_mem",
+          "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/instruction_memory.v",
+          "ModuleLine" : 2,
+          "ModuleName" : "instruction_memory"
+         },
+         {
+          "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_isa20_interactive.v",
+          "InstLine" : 101,
+          "InstName" : "u_imm_gen",
+          "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/immediate_gen.v",
+          "ModuleLine" : 15,
+          "ModuleName" : "immediate_gen"
+         },
+         {
+          "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_isa20_interactive.v",
+          "InstLine" : 102,
+          "InstName" : "u_reg_file",
+          "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/register_file.v",
+          "ModuleLine" : 10,
+          "ModuleName" : "register_file"
+         },
+         {
+          "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_isa20_interactive.v",
+          "InstLine" : 109,
+          "InstName" : "u_alu",
+          "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/alu.v",
+          "ModuleLine" : 4,
+          "ModuleName" : "alu"
+         },
+         {
+          "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_isa20_interactive.v",
+          "InstLine" : 110,
+          "InstName" : "u_dmem",
+          "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/data_memory_mmio_v2.v",
+          "ModuleLine" : 9,
+          "ModuleName" : "data_memory_mmio_v2"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+    "InstLine" : 22,
+    "InstName" : "u_bcd",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/signed_result_to_bcd8.v",
+    "ModuleLine" : 14,
+    "ModuleName" : "signed_result_to_bcd8"
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+    "InstLine" : 32,
+    "InstName" : "u_console",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_tx.v",
+    "ModuleLine" : 3,
+    "ModuleName" : "isa20_interactive_tx",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_tx.v",
+      "InstLine" : 10,
+      "InstName" : "u_tx",
+      "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_tx.v",
+      "ModuleLine" : 2,
+      "ModuleName" : "uart_tx"
+     }
+    ]
+   },
+   {
+    "InstFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+    "InstLine" : 33,
+    "InstName" : "u_led",
+    "ModuleFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/led7_scan_signed_595.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "led7_scan_signed_595"
+   }
+  ]
  }
 ]

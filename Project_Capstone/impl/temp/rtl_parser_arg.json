@@ -100,6 +100,34 @@
   {
    "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_tx.v",
    "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/cpu_isa20_interactive.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_encoder.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_engine.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_parser.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/isa20_interactive_tx.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/uart_cpu_isa20_interactive_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/src/datapath_isa20_interactive.v",
+   "Type" : "verilog"
   }
  ],
  "IncludePath" : [
@@ -107,7 +135,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "D:/SEP490_IC_Design/Project/SEP490_G93_IC_Design_Project/Project_Capstone/impl/temp/rtl_parser.result",
- "Top" : "uart_cpu_mmio_v2_top",
+ "Top" : "uart_cpu_isa20_interactive_top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }
